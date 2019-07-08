@@ -9,7 +9,6 @@ var pr_gender = "";
 var pr_zipcode = null;
 var pr_enroll = "";
 
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 

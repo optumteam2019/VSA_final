@@ -5,14 +5,12 @@
 <script type="text/javascript"
     src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-
 <script>
-    function ajaxCall()
-    {
-      $.ajax(
-        {
-          url : "http://localhost:8080/update",
-          success : function(result){
+  var app= angular.module('myApp', []);
+app.controller('myCtrl', function($scope, $http, $interval){
+    $interval(function(){
+      $http.get('http://localhost:8080/update').then(function(response){
+        var result= response.data;
             if(document.getElementById('name').value=="")
             {
               document.getElementById('name').value= result.Name;
@@ -32,20 +30,19 @@
             
             if(result.Enroll == "Enroll")
             {
-              $("#enroll_button").click();
+              document.getElementById('enroll_button').click();
             }
-           
-            //document.getElementById('name').value= result.Name;
-            //document.getElementById('age').value= result.Age;
-            //document.getElementById('zipcode').value= result.Zipcode;            
-          }
-        }
-      )
-    }
 
-    setInterval(ajaxCall,1000);
-           
+      });
+
+    },2000);
+});
 </script>
+
+  
+    
+  
+
 
 <style>
 * {
@@ -123,9 +120,9 @@ input[type=submit]:hover {
 </head>
 <body>
 <h2 align="center">Form</h2>
-<div class="container">
+<div class="container" ng-app="myApp" ng-controller="myCtrl">
 
-  <form id="submitForm" action="/" method="post">
+  <form id="submitForm" action="/" method="post" ng-model="dataentry">
     
     <div class="row">
       <div class="col-25">
@@ -178,6 +175,5 @@ input[type=submit]:hover {
   </div>
 
 </div>
-
 </body>
 </html>
