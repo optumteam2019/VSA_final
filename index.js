@@ -131,8 +131,6 @@ app.post('/dialogflow', express.json(), (req, res) => {
     }
   }
 
-  welcome();
-
   let intentMap = new Map()
   intentMap.set('Default Welcome Intent', welcome);
   intentMap.set('Name_Intent', name_fun);
