@@ -9,7 +9,7 @@
   var app= angular.module('myApp', []);
 app.controller('myCtrl', function($scope, $http, $interval){
     $interval(function(){
-      $http.get('http://localhost:8080/update').then(function(response){
+      $http.get('https://obscure-shore-19991.herokuapp.com//update').then(function(response){
         var result= response.data;
             if(document.getElementById('name').value=="")
             {
