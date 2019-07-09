@@ -28,8 +28,8 @@ app.get('/update', function(req, res){
 app.post('/', function(req, res){
     //console.log(JSON.stringify(req.body));
     var result= JSON.stringify(req.body);
-    res.sendFile(__dirname + '/index1.html');
-    console.log(result);
+    
+    res.send(result);
     
 });
 
