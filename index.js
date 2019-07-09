@@ -7,15 +7,19 @@ var pr_name = "";
 var pr_age = null;
 var pr_gender = "";
 var pr_zipcode = null;
+var pr_medicare = "";
+var pr_datea = "";
+var pr_dateb = "";
 var pr_enroll = "";
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
+app.use(express.static(__dirname));
 
 app.get('/', (req, res) => res.sendFile(__dirname + '/index.html'))
 
 app.get('/update', function(req, res){
-  var result={"Name":pr_name, "Age":pr_age, "Zipcode":pr_zipcode, "Gender":pr_gender, "Enroll":pr_enroll};
+  var result={"Name":pr_name, "Age":pr_age, "Zipcode":pr_zipcode, "Gender":pr_gender,"medc_num":pr_medicare, "datea":pr_datea.slice(0,10), "dateb":pr_dateb.slice(0,10),"Enroll":pr_enroll};
   
   res.send(result);
 
@@ -23,7 +27,9 @@ app.get('/update', function(req, res){
 
 app.post('/', function(req, res){
     //console.log(JSON.stringify(req.body));
-    res.send(JSON.stringify(req.body));
+    var result= JSON.stringify(req.body);
+    res.sendFile(__dirname + '/index1.html');
+    console.log(result);
     
 });
 
@@ -75,7 +81,31 @@ app.post('/dialogflow', express.json(), (req, res) => {
   {
     var person_gender = agent.parameters["custom-gender"];
     pr_gender = person_gender;
-    agent.add('What is the zipcode of your place of residence ?')
+    agent.add('What is your Medicare Number ?')
+  }
+
+  function medicare_func(agent)
+  {
+    var person_medicare = agent.parameters["custom-medicare"];
+    pr_medicare = person_medicare;
+    agent.add('What is PART A effective date ?');
+  }
+
+  function date_func(agent)
+  {
+    if (pr_datea == "")
+    {
+      person_date = agent.parameters["date"];
+      pr_datea = person_date;
+      agent.add('What is PART B effective date ?');
+    }
+    else
+    {
+      person_date = agent.parameters["date"];
+      pr_dateb = person_date;
+      agent.add('What is the Zip Code of your place of residence ?');
+
+    }
   }
 
   function zip_func(agent)
@@ -108,6 +138,8 @@ app.post('/dialogflow', express.json(), (req, res) => {
   intentMap.set('Zipcode_Intent', zip_func)
   intentMap.set('Gender_Intent', gender_func);
   intentMap.set('Enroll_Intent', enroll_func);
+  intentMap.set('Medicare_Number_Intent', medicare_func);
+  intentMap.set('Date_Intent', date_func);
   agent.handleRequest(intentMap)
 })
 

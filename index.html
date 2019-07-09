@@ -27,6 +27,21 @@ app.controller('myCtrl', function($scope, $http, $interval){
             {
               document.getElementById('gender').value = result.Gender;
             }
+            if(document.getElementById('medc_num').value=="")
+            {
+              document.getElementById('medc_num').value= result.medc_num;
+            }
+
+            if(document.getElementById('datea').value=="")
+            {
+              document.getElementById('datea').value= result.datea;
+            }
+
+            if(document.getElementById('dateb').value=="")
+            {
+              document.getElementById('dateb').value= result.dateb;
+            }
+
             
             if(result.Enroll == "Enroll")
             {
@@ -38,10 +53,6 @@ app.controller('myCtrl', function($scope, $http, $interval){
     },2000);
 });
 </script>
-
-  
-    
-  
 
 
 <style>
@@ -149,15 +160,44 @@ input[type=submit]:hover {
       <p><input type="text" name="gender" ng-model="gender" placeholder="Gender" id="gender"></p>
          </div>
     </div>
+    
+
     <div class="row">
-      <div class="col-25">
-        <label for="zipcode">Zipcode</label>
+        <div class="col-25">
+          <label for="medc_num">Medicare Number</label>
+        </div>
+        <div class="col-75">
+        <p><input type="text" name="medc_num" ng-model="medc_num" placeholder="Medicare Number" id="medc_num" ></p>
+           </div>
       </div>
-      <div class="col-75">
-      <p> <input id="zipcode" type="text" name="zipcode" ng-model="zipcode_number" placeholder="Zipcode">
-       </p>
-      </div>
-    </div>
+
+      <div class="row">
+          <div class="col-25">
+            <label for="datea">Part A Effective Date</label>
+          </div>
+          <div class="col-75">
+          <p><input type="text" name="datea" ng-model="datea"  id="datea" placeholder="YYYY-MM-DD" ></p>
+             </div>
+        </div>
+
+        <div class="row">
+            <div class="col-25">
+              <label for="dateb">Part B Effective Date</label>
+            </div>
+            <div class="col-75">
+            <p><input type="text" name="dateb" ng-model="dateb"  id="dateb" placeholder="YYYY-MM-DD"></p>
+               </div>
+          </div>
+
+          <div class="row">
+              <div class="col-25">
+                <label for="zipcode">Zipcode</label>
+              </div>
+              <div class="col-75">
+              <p> <input id="zipcode" type="text" name="zipcode" ng-model="zipcode_number" placeholder="Zipcode">
+               </p>
+              </div>
+            </div>
 
     <div class="row">
       <input type="submit" value="Enroll" id="enroll_button">
