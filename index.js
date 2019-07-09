@@ -132,9 +132,9 @@ app.post('/dialogflow', express.json(), (req, res) => {
   }
 
   let intentMap = new Map()
-  intentMap.set('Default Welcome Intent', welcome)
-  intentMap.set('Name_Intent', name_fun)
-  intentMap.set('Age_Intent', age_fun)
+  intentMap.set('Default Welcome Intent', welcome);
+  intentMap.set('Name_Intent', name_fun);
+  intentMap.set('Age_Intent', age_fun);
   intentMap.set('Zipcode_Intent', zip_func)
   intentMap.set('Gender_Intent', gender_func);
   intentMap.set('Enroll_Intent', enroll_func);
