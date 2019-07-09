@@ -37,7 +37,7 @@ app.post('/dialogflow', express.json(), (req, res) => {
   const agent = new WebhookClient({ request: req, response: res })
 
   function welcome () {
-    agent.add('Hi, What is your name?')
+    agent.add('Hi, WWhat is your name?')
   }
 
   function name_fun (agent)
