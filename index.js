@@ -2,9 +2,6 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const { WebhookClient } = require('dialogflow-fulfillment');
 const app = express();
-let conv = agent.conv();
-conv.ask('How are you ?');
-agent.add(conv);
 
 var pr_name = "";
 var pr_age = null;
@@ -133,6 +130,8 @@ app.post('/dialogflow', express.json(), (req, res) => {
       agent.add('Contact customer care for any help');
     }
   }
+
+  welcome();
 
   let intentMap = new Map()
   intentMap.set('Default Welcome Intent', welcome);
