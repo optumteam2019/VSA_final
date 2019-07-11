@@ -36,16 +36,16 @@ app.post('/', function(req, res){
 app.post('/dialogflow', express.json(), (req, res) => {
   const agent = new WebhookClient({ request: req, response: res })
 
-  function check_next(agent)
+  function help_func(agent)
   {
     if (pr_name == "")
     {
-      agent.add('Can I know your full name please ?');
+      agent.add('Please provide your full name as written on your Medicare Health Insurance Card.');
     }
 
     else if(pr_age == null)
     {
-      agent.add('What\'s your age ?' );
+      agent.add('M&R plans are for members who are 65 or older. Please provide your age to continue.' );
     }
 
     else if(pr_gender=="")
@@ -55,7 +55,7 @@ app.post('/dialogflow', express.json(), (req, res) => {
 
     else if(pr_medicare=="")
     {
-      agent.add('Please provide me with your medicare number.');
+      agent.add('Medicare number is an alpha-numeric unique ID written on your Medicare Health Insurance Card. Please provide your medicare number in the given format');
     }
     
   }
@@ -118,7 +118,7 @@ app.post('/dialogflow', express.json(), (req, res) => {
   {
     var person_medicare = agent.parameters["custom-medicare"];
     pr_medicare = person_medicare;
-    agent.add('What is PART A effective date ?');
+    agent.add('What is the PART A effective date ?');
   }
 
   function date_func(agent)
@@ -127,7 +127,7 @@ app.post('/dialogflow', express.json(), (req, res) => {
     {
       person_date = agent.parameters["date"];
       pr_datea = person_date;
-      agent.add('What is PART B effective date ?');
+      agent.add('What is the PART B effective date ?');
     }
     else
     {
@@ -171,6 +171,7 @@ app.post('/dialogflow', express.json(), (req, res) => {
   intentMap.set('Enroll_Intent', enroll_func);
   intentMap.set('Medicare_Number_Intent', medicare_func);
   intentMap.set('Date_Intent', date_func);
+  intentMap.set('Help_Intent', help_func);
   agent.handleRequest(intentMap)
 })
 
