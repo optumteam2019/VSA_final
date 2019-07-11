@@ -36,8 +36,38 @@ app.post('/', function(req, res){
 app.post('/dialogflow', express.json(), (req, res) => {
   const agent = new WebhookClient({ request: req, response: res })
 
+  function check_next(agent)
+  {
+    if (pr_name == "")
+    {
+      agent.add('Can I know your full name please ?');
+    }
+
+    else if(pr_age == null)
+    {
+      agent.add('What\'s your age ?' );
+    }
+
+    else if(pr_gender=="")
+    {
+      agent.add('What\'s your gender ?');
+    }
+
+    else if(pr_medicare=="")
+    {
+      agent.add('Please provide me with your medicare number.');
+    }
+    
+  }
+
   function welcome () {
     agent.add('Hi, What is your full name?')
+  }
+
+  function fall_func(agent)
+  {
+    check_next();
+    //agent.add('Sorry I missed that ! Can you please repeat ?');
   }
 
   function name_fun (agent)
@@ -133,6 +163,7 @@ app.post('/dialogflow', express.json(), (req, res) => {
 
   let intentMap = new Map()
   intentMap.set('Default Welcome Intent', welcome);
+  intentMap.set('Default Fallback Intent', fall_func);
   intentMap.set('Name_Intent', name_fun);
   intentMap.set('Age_Intent', age_fun);
   intentMap.set('Zipcode_Intent', zip_func)
