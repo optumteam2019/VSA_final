@@ -50,7 +50,7 @@ app.post('/dialogflow', express.json(), (req, res) => {
 
     else if(pr_gender=="")
     {
-      agent.add('What\'s your gender ?');
+      agent.add('Male/Female');
     }
 
     else if(pr_medicare=="")
