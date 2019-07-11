@@ -122,12 +122,12 @@ app.post('/dialogflow', express.json(), (req, res) => {
     pr_enroll = person_enroll;
 
     
-    if (person_enroll=="Enroll")
+    if (person_enroll=="Enroll" or person_enroll=="Submit")
     {
       agent.add('Congrats !');
     }
     else{
-      agent.add('Contact customer care for any help');
+      agent.add('Your feedback is valuable to us. Contact customer care for any help.');
     }
   }
 
