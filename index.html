@@ -42,7 +42,7 @@ app.controller('myCtrl', function($scope, $http, $interval){
             }
 
             
-            if(result.Enroll == "Enroll")
+            if(result.Enroll == "Enroll" || result.enroll=="Submit")
             {
               document.getElementById('enroll_button').click();
             }
