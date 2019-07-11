@@ -55,7 +55,7 @@ app.post('/dialogflow', express.json(), (req, res) => {
 
     else if(pr_medicare=="")
     {
-      agent.add('Medicare number is an alpha-numeric unique ID written on your Medicare Health Insurance Card. Please provide your medicare number in the given format');
+      agent.add('Medicare number is an alpha-numeric unique ID written on your Medicare Health Insurance Card. Please provide your medicare number in the format ####-XXXX');
     }
 
     else if(pr_datea=="" || pr_dateb=="")
@@ -116,7 +116,7 @@ app.post('/dialogflow', express.json(), (req, res) => {
   {
     var person_gender = agent.parameters["custom-gender"];
     pr_gender = person_gender;
-    agent.add('What is your Medicare Number ?')
+    agent.add('What is your Medicare Number (Format : ####-XXXX)?');
   }
 
   function medicare_func(agent)
