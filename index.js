@@ -42,13 +42,15 @@ app.post('/dialogflow', express.json(), (req, res) => {
 
   function name_fun (agent)
   {
-      var person_name = agent.parameters["given-name"]+" "+agent.parameters["last-name"];
+      var person_name = agent.parameters["given-name"]
+      var person_last_name = agent.parameters["last-name"];
       pr_name = person_name;
+      pr_last_name = person_last_name;
       //console.log('Name : ' + person_name);
       const person_age = agent.parameters["age"];
       //console.log(person_age)
       if(!person_age){
-        agent.add('Hi ' + person_name + '. What is your age ?');
+        agent.add('Hi ' + person_name + ' ' + person_last_name + '. What is your age ?');
       }
       else{
         agent.add('Hi ' + person_name + '.');
