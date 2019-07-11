@@ -57,6 +57,11 @@ app.post('/dialogflow', express.json(), (req, res) => {
     {
       agent.add('Medicare number is an alpha-numeric unique ID written on your Medicare Health Insurance Card. Please provide your medicare number in the given format');
     }
+
+    else if(pr_datea=="" || pr_dateb=="")
+    {
+      agent.add('It is mandatory to have PART A and Part B plan before enrolling in a Medicare Advantage Plan. You can check for their effective dates on your Medicare Health Insurance Card.');
+    }
     
   }
 
