@@ -48,7 +48,7 @@ app.post('/dialogflow', express.json(), (req, res) => {
       const person_age = agent.parameters["age"];
       //console.log(person_age)
       if(!person_age){
-        agent.add('Hi ' + person_name + ' ' + person_last_name + '. What is your age ?');
+        agent.add('Hi ' + agent.parameters["given-name"] + '. What is your age ?');
       }
       else{
         agent.add('Hi ' + person_name + '.');
