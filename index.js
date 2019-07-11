@@ -66,8 +66,8 @@ app.post('/dialogflow', express.json(), (req, res) => {
 
   function fall_func(agent)
   {
-    check_next();
-    //agent.add('Sorry I missed that ! Can you please repeat ?');
+    //check_next();
+    agent.add('Sorry I missed that ! Can you please repeat ??');
   }
 
   function name_fun (agent)
