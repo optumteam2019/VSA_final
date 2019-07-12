@@ -71,7 +71,7 @@ app.post('/dialogflow', express.json(), (req, res) => {
 
     else if(pr_plan==null)
     {
-      agent.add('Select a plan from the available list of plans.')
+      agent.add('Select a plan from the following available list of plans : \nPART C\nPART D')
     }
 
     else if(pr_enroll=="")
@@ -82,7 +82,7 @@ app.post('/dialogflow', express.json(), (req, res) => {
   }
 
   function welcome () {
-    agent.add('Hi! I will assist you in enrolling for the medicare advantage plan. \n Let\'s start by introducing ourselves. I am Krista ! What\'s your good name ?')
+    agent.add('Hi, I am Krista from UnitedHealth Care! I will assist you in enrolling for the medicare advantage plan. \nWhat\'s your good name ?')
   }
 
   function fall_func(agent)
@@ -96,14 +96,26 @@ app.post('/dialogflow', express.json(), (req, res) => {
   {
       var person_name = agent.parameters["given-name"] + ' ' + agent.parameters["last-name"];
       pr_name = person_name;
-      //console.log('Name : ' + person_name);
-      const person_age = agent.parameters["age"];
+
       //console.log(person_age)
-      if(!person_age){
-        agent.add('Hi ' + agent.parameters["given-name"] + '. What is your age ?');
+      if(pr_age==""){
+        agent.add('Hi ' + agent.parameters["given-name"] + '. What\'s your age ?');
       }
-      else{
-        agent.add('Hi ' + person_name + '.');
+      else if(pr_gender=="")
+      {
+        agent.add('What\'s your gender?')
+      }
+      else if(pr_medicare=="")
+      {
+        agent.add('Please provide your Medicare Number in the Format : ####-XXXX)?');
+      }
+      else if(pr_datea=="")
+      {
+        agent.add('Provide your PART A effective date as written on your Medical Health Insurance Card.');
+      }
+      else if(pr_dateb=="")
+      {
+        agent.add('Provide your PART A effective date as written on your Medical Health Insurance Card.');
       }
   }
 
