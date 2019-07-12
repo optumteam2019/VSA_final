@@ -63,6 +63,16 @@ app.post('/dialogflow', express.json(), (req, res) => {
     {
       agent.add('It is mandatory to have PART A and Part B plan before enrolling in a Medicare Advantage Plan. You can check for their effective dates on your Medicare Health Insurance Card.');
     }
+
+    else if(pr_zipcode==null)
+    {
+      agent.add('Please provide your current zipcode to continue.')
+    }
+
+    else if(pr_plan==null)
+    {
+      agent.add('Select a plan from the available list of plans.')
+    }
     
   }
 
@@ -73,6 +83,7 @@ app.post('/dialogflow', express.json(), (req, res) => {
   function fall_func(agent)
   {
     //check_next();
+    
     agent.add('Sorry I missed that ! Can you please repeat ??');
   }
 
@@ -163,6 +174,8 @@ app.post('/dialogflow', express.json(), (req, res) => {
   function enroll_func(agent)
   {
     var person_enroll = agent.parameters["custom-enroll"];
+    
+    
     pr_enroll = person_enroll;
 
     
@@ -189,6 +202,12 @@ app.post('/dialogflow', express.json(), (req, res) => {
   intentMap.set('Help_Intent', help_func);
   agent.handleRequest(intentMap)
 })
+
+
+
+
+
+
 
 
 app.listen(process.env.PORT || 8080)
