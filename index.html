@@ -10,7 +10,7 @@ app.controller('myCtrl', function($scope, $http, $interval){
     $interval(function(){
       $http.get('https://obscure-shore-19991.herokuapp.com/update').then(function(response){
         var result= response.data;
-            if(document.getElementById('name').value=="" || document.getElementById('name').value!=result.Name)
+            if(document.getElementById('name').value=="")
             {
               document.getElementById('name').value= result.Name;
             }
