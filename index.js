@@ -218,6 +218,10 @@ app.post('/dialogflow', express.json(), (req, res) => {
     else if(pr_age==null){
       agent.add('What\'s your age '+agent.parameters["given-name"]+'?');
     }
+    else if(pr_gender=="")
+    {
+      agent.add('What\'s your gender?')
+    }
     else if(pr_datea=="")
     {
       agent.add('What\'s your PART A effective date as written on your Medical Health Insurance Card.');
@@ -249,6 +253,10 @@ app.post('/dialogflow', express.json(), (req, res) => {
       else if(pr_age==null){
         agent.add('What\'s your age '+agent.parameters["given-name"]+'?');
       }
+      else if(pr_gender=="")
+      {
+        agent.add('What\'s your gender?')
+      }
       else if(pr_medicare=="")
       {
         agent.add('Please provide your Medicare Number in the Format : ####-XXXX)?');
@@ -277,6 +285,10 @@ app.post('/dialogflow', express.json(), (req, res) => {
       else if(pr_age==null){
         agent.add('What\'s your age '+agent.parameters["given-name"]+'?');
       }
+      else if(pr_gender=="")
+      {
+        agent.add('What\'s your gender?')
+      }
       else if(pr_medicare=="")
       {
         agent.add('Please provide your Medicare Number in the Format : ####-XXXX)?');
@@ -303,6 +315,10 @@ app.post('/dialogflow', express.json(), (req, res) => {
       }
       else if(pr_age==null){
         agent.add('What\'s your age '+agent.parameters["given-name"]+'?');
+      }
+      else if(pr_gender=="")
+      {
+        agent.add('What\'s your gender?')
       }
       else if(pr_medicare=="")
       {
@@ -343,7 +359,7 @@ app.post('/dialogflow', express.json(), (req, res) => {
     }
   }
 
-  
+
   let intentMap = new Map()
   intentMap.set('Default Welcome Intent', welcome);
   intentMap.set('Default Fallback Intent', fall_func);
