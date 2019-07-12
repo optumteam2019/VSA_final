@@ -306,7 +306,7 @@ app.post('/dialogflow', express.json(), (req, res) => {
 
   function zip_func(agent)
   {
-      const person_zip = agent.parameters["zip-code"];
+      var person_zip = agent.parameters["zip-code"];
       pr_zipcode = person_zip;
       //console.log('Zip Code : '+person_zip);
       if (pr_name=="")
@@ -332,7 +332,7 @@ app.post('/dialogflow', express.json(), (req, res) => {
       {
         agent.add('What\'s your PART B effective date as written on your Medical Health Insurance Card.');
       }
-      else if(pr_plan)
+      else if(pr_plan=="")
       {
         agent.add('The following plans are available for the zipcode ' + person_zip + '. \nChoose from the available plans.')
       }
@@ -342,7 +342,33 @@ app.post('/dialogflow', express.json(), (req, res) => {
   {
     var person_plan = agent.parameters["custom-plan"];
     pr_plan = person_plan;
-    agent.add('Do you want to submit the application?');
+    if (pr_name=="")
+    {
+      agent.add('What\'s your good name please ?');
+    }
+    else if(pr_age==null){
+      agent.add('What\'s your age '+agent.parameters["given-name"]+'?');
+    }
+    else if(pr_gender=="")
+    {
+      agent.add('What\'s your gender?')
+    }
+    else if(pr_medicare=="")
+    {
+      agent.add('Please provide your Medicare Number in the Format : ####-XXXX)?');
+    }
+    else if(pr_datea=="")
+    {
+      agent.add('What\'s your PART A effective date as written on your Medical Health Insurance Card.');
+    }
+    else if(pr_dateb=="")
+    {
+      agent.add('What\'s your PART B effective date as written on your Medical Health Insurance Card.');
+    }
+    else
+    {
+      agent.add('Do you want to submit the application?');
+    } 
   }
 
   function enroll_func(agent)
