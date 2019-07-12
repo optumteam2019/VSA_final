@@ -27,17 +27,17 @@ app.get('/update', function(req, res){
 
 app.post('/update2', function(res, req){
   var result = JSON.stringify(req.body);
-  if(pr_name=="" && result.pr_name!="")
+  if(pr_name=="")
   {
-    pr_name = result.pr_name;
+    pr_name = result.name;
   }
   if(pr_age==null)
   {
-    pr_age = result.pr_age;
+    pr_age = result.age;
   }
   if(pr_gender=="")
   {
-    pr_gender = result.pr_gender;
+    pr_gender = result.gender;
   }
 })
 

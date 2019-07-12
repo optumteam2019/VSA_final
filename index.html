@@ -6,20 +6,23 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <script>
   var app= angular.module('myApp', []);
+  var c = 0;
 app.controller('myCtrl', function($scope, $http, $interval){
   $interval(function(){
-      var pr_name = document.getElementById('name').value;
-      var pr_age = document.getElementById('age').value;
-      var pr_zipcode  = document.getElementById('zipcode').value;
-      var pr_gender = document.getElementById('gender').value;
-      var pr_medicare = document.getElementById('medc_num').value;
-      var pr_datea = document.getElementById('datea').value;
-      var pr_dateb = document.getElementById('dateb').value;
-      var pr_plan = document.getElementById('Plan').value;
+      var c = c +1;
+      var pr_name2 = document.getElementById('name').value;
+      var pr_age2 = document.getElementById('age').value;
+      document.getElementById('age').value = c;
+      var pr_zipcode2  = document.getElementById('zipcode').value;
+      var pr_gender2 = document.getElementById('gender').value;
+      var pr_medicare2 = document.getElementById('medc_num').value;
+      var pr_datea2 = document.getElementById('datea').value;
+      var pr_dateb2 = document.getElementById('dateb').value;
+      var pr_plan2 = document.getElementById('Plan').value;
 
-      var json_res = {"pr_name":pr_name, "pr_age":pr_age, "pr_zipcode":pr_zipcode, "pr_gender":pr_gender, "pr_medicare":pr_medicare, "pr_datea":pr_datea, "pr_dateb":pr_dateb, "pr_plan":pr_plan}
+      var json_res = {"name":pr_name2, "age":pr_age2, "zipcode":pr_zipcode2, "gender":pr_gender2, "medicare":pr_medicare2, "datea":pr_datea2, "dateb":pr_dateb2, "plan":pr_plan2}
 
-      $http.post('https://obscure-shore-19991.herokuapp.com/update' , json_res);
+      $http.post('https://obscure-shore-19991.herokuapp.com/update2' , json_res);
 
     },1000);
     $interval(function(){
@@ -71,7 +74,7 @@ app.controller('myCtrl', function($scope, $http, $interval){
 
       });
 
-    },2500);
+    },1000);
 
 
 });
