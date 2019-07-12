@@ -133,7 +133,7 @@ app.post('/dialogflow', express.json(), (req, res) => {
 
   function medicare_func(agent)
   {
-    var person_medicare = agent.parameters["any"];
+    var person_medicare = agent.parameters["custom-medicare"];
     pr_medicare = person_medicare;
     agent.add('What is the PART A effective date ?');
   }
