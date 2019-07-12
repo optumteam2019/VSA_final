@@ -98,8 +98,8 @@ app.post('/dialogflow', express.json(), (req, res) => {
       pr_name = person_name;
 
       //console.log(person_age)
-      if(pr_age==""){
-        agent.add('Hi ' + agent.parameters["given-name"] + '. What\'s your age ?');
+      if(pr_age==null){
+        agent.add('What\'s your age '+agent.parameters["given-name"]+'?');
       }
       else if(pr_gender=="")
       {
@@ -111,11 +111,19 @@ app.post('/dialogflow', express.json(), (req, res) => {
       }
       else if(pr_datea=="")
       {
-        agent.add('Provide your PART A effective date as written on your Medical Health Insurance Card.');
+        agent.add('What\'s your PART A effective date as written on your Medical Health Insurance Card.');
       }
       else if(pr_dateb=="")
       {
-        agent.add('Provide your PART A effective date as written on your Medical Health Insurance Card.');
+        agent.add('What\'s your PART B effective date as written on your Medical Health Insurance Card.');
+      }
+      else if(pr_zipcode==null)
+      {
+        agent.add('What is the zipcode of your current place of residence ?')
+      }
+      else if(pr_plan)
+      {
+        agent.add('The following plans are available for the zipcode ' + person_zip + '. \nChoose from the available plans.')
       }
   }
 
@@ -130,14 +138,38 @@ app.post('/dialogflow', express.json(), (req, res) => {
       {
         agent.add('You are not eligible for enrolling in this plan');
       }
-      else{
-        if(!person_gender)
+      else
+      {
+
+        if(pr_name=="")
         {
-            agent.add('You are eligible for enrolling in this plan. What is your gender ?');
+          agent.add('What\'s your good name please ?');
         }
-        else{
-            agent.add('You are eligible for enrolling in this plan');
-        }       
+        else if(pr_gender=="")
+        {
+          agent.add('What\'s your gender?')
+        }
+        else if(pr_medicare=="")
+        {
+          agent.add('Please provide your Medicare Number in the Format : ####-XXXX)?');
+        }
+        else if(pr_datea=="")
+        {
+          agent.add('What\'s your PART A effective date as written on your Medical Health Insurance Card.');
+        }
+        else if(pr_dateb=="")
+        {
+          agent.add('What\'s your PART B effective date as written on your Medical Health Insurance Card.');
+        }
+        else if(pr_zipcode==null)
+        {
+          agent.add('What is the zipcode of your current place of residence ?')
+        }
+        else if(pr_plan)
+        {
+          agent.add('The following plans are available for the zipcode ' + person_zip + '. \nChoose from the available plans.')
+        }
+   
       }
   }
 
@@ -145,14 +177,63 @@ app.post('/dialogflow', express.json(), (req, res) => {
   {
     var person_gender = agent.parameters["custom-gender"];
     pr_gender = person_gender;
-    agent.add('What is your Medicare Number (Format : ####-XXXX)?');
+
+    if (pr_name=="")
+    {
+      agent.add('What\'s your good name please ?');
+    }
+    else if(pr_age==null){
+      agent.add('What\'s your age '+agent.parameters["given-name"]+'?');
+    }
+    else if(pr_medicare=="")
+    {
+      agent.add('Please provide your Medicare Number in the Format : ####-XXXX)?');
+    }
+    else if(pr_datea=="")
+    {
+      agent.add('What\'s your PART A effective date as written on your Medical Health Insurance Card.');
+    }
+    else if(pr_dateb=="")
+    {
+      agent.add('What\'s your PART B effective date as written on your Medical Health Insurance Card.');
+    }
+    else if(pr_zipcode==null)
+    {
+      agent.add('What is the zipcode of your current place of residence ?')
+    }
+    else if(pr_plan)
+    {
+      agent.add('The following plans are available for the zipcode ' + person_zip + '. \nChoose from the available plans.')
+    }
   }
 
   function medicare_func(agent)
   {
     var person_medicare = agent.parameters["custom-medicare"];
     pr_medicare = person_medicare;
-    agent.add('What is the PART A effective date ?');
+    if (pr_name=="")
+    {
+      agent.add('What\'s your good name please ?');
+    }
+    else if(pr_age==null){
+      agent.add('What\'s your age '+agent.parameters["given-name"]+'?');
+    }
+    else if(pr_datea=="")
+    {
+      agent.add('What\'s your PART A effective date as written on your Medical Health Insurance Card.');
+    }
+    else if(pr_dateb=="")
+    {
+      agent.add('What\'s your PART B effective date as written on your Medical Health Insurance Card.');
+    }
+    else if(pr_zipcode==null)
+    {
+      agent.add('What is the zipcode of your current place of residence ?')
+    }
+    else if(pr_plan)
+    {
+      agent.add('The following plans are available for the zipcode ' + person_zip + '. \nChoose from the available plans.')
+    }
   }
 
   function date_func(agent)
@@ -161,14 +242,53 @@ app.post('/dialogflow', express.json(), (req, res) => {
     {
       person_date = agent.parameters["date"];
       pr_datea = person_date;
-      agent.add('What is the PART B effective date ?');
+      if (pr_name=="")
+      {
+        agent.add('What\'s your good name please ?');
+      }
+      else if(pr_age==null){
+        agent.add('What\'s your age '+agent.parameters["given-name"]+'?');
+      }
+      else if(pr_medicare=="")
+      {
+        agent.add('Please provide your Medicare Number in the Format : ####-XXXX)?');
+      }
+      else if(pr_dateb=="")
+      {
+        agent.add('What\'s your PART B effective date as written on your Medical Health Insurance Card.');
+      }
+      else if(pr_zipcode==null)
+      {
+        agent.add('What is the zipcode of your current place of residence ?')
+      }
+      else if(pr_plan)
+      {
+        agent.add('The following plans are available for the zipcode ' + person_zip + '. \nChoose from the available plans.')
+      }
     }
     else
     {
       person_date = agent.parameters["date"];
       pr_dateb = person_date;
-      agent.add('What is the Zip Code of your place of residence ?');
-
+      if (pr_name=="")
+      {
+        agent.add('What\'s your good name please ?');
+      }
+      else if(pr_age==null){
+        agent.add('What\'s your age '+agent.parameters["given-name"]+'?');
+      }
+      else if(pr_medicare=="")
+      {
+        agent.add('Please provide your Medicare Number in the Format : ####-XXXX)?');
+      }
+      else if(pr_zipcode==null)
+      {
+        agent.add('What is the zipcode of your current place of residence ?')
+      }
+      else if(pr_plan)
+      {
+        agent.add('The following plans are available for the zipcode ' + person_zip + '. \nChoose from the available plans.')
+      }
     }
   }
 
@@ -177,69 +297,53 @@ app.post('/dialogflow', express.json(), (req, res) => {
       const person_zip = agent.parameters["zip-code"];
       pr_zipcode = person_zip;
       //console.log('Zip Code : '+person_zip);
-      agent.add('The following plans are available for the zipcode ' + person_zip + '. \nChoose from the available plans.')
+      if (pr_name=="")
+      {
+        agent.add('What\'s your good name please ?');
+      }
+      else if(pr_age==null){
+        agent.add('What\'s your age '+agent.parameters["given-name"]+'?');
+      }
+      else if(pr_medicare=="")
+      {
+        agent.add('Please provide your Medicare Number in the Format : ####-XXXX)?');
+      }
+      else if(pr_datea=="")
+      {
+        agent.add('What\'s your PART A effective date as written on your Medical Health Insurance Card.');
+      }
+      else if(pr_dateb=="")
+      {
+        agent.add('What\'s your PART B effective date as written on your Medical Health Insurance Card.');
+      }
+      else if(pr_plan)
+      {
+        agent.add('The following plans are available for the zipcode ' + person_zip + '. \nChoose from the available plans.')
+      }
   }
 
   function plan_func(agent)
   {
     var person_plan = agent.parameters["custom-plan"];
     pr_plan = person_plan;
-    console.log(pr_plan);
     agent.add('Do you want to submit the application?');
   }
 
   function enroll_func(agent)
   {
     var person_enroll = agent.parameters["custom-enroll"];
-    
-    if (pr_name == "")
+    pr_enroll = person_enroll;
+    if (person_enroll=="Enroll" || person_enroll=="Submit")
     {
-      agent.add('Please provide your full name as written on your Medicare Health Insurance Card.');
-    }
-
-    else if(pr_age == null)
-    {
-      agent.add('M&R plans are for members who are 65 or older. Please provide your age to continue.' );
-    }
-
-    else if(pr_gender=="")
-    {
-      agent.add('Male/Female');
-    }
-
-    else if(pr_medicare=="")
-    {
-      agent.add('Medicare number is an alpha-numeric unique ID written on your Medicare Health Insurance Card. Please provide your medicare number in the format ####-XXXX');
-    }
-
-    else if(pr_datea=="" || pr_dateb=="")
-    {
-      agent.add('It is mandatory to have PART A and Part B plan before enrolling in a Medicare Advantage Plan. You can check for their effective dates on your Medicare Health Insurance Card.');
-    }
-
-    else if(pr_zipcode==null)
-    {
-      agent.add('Please provide your current zipcode to continue.')
-    }
-
-    else if(pr_plan==null)
-    {
-      agent.add('Select a plan from the available list of plans.')
+       agent.add('Congrats !');
     }
     else
     {
-      pr_enroll = person_enroll;
-      if (person_enroll=="Enroll" || person_enroll=="Submit")
-      {
-        agent.add('Congrats !');
-      }
-      else{
-        agent.add('Your feedback is valuable to us. Contact customer care for any help.');
-      }
+      agent.add('Your feedback is valuable to us. Contact customer care for any help.');
     }
-
   }
 
+  
   let intentMap = new Map()
   intentMap.set('Default Welcome Intent', welcome);
   intentMap.set('Default Fallback Intent', fall_func);
