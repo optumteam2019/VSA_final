@@ -135,14 +135,14 @@ input[type=submit]:hover {
 
 <div class="container" ng-app="myApp" ng-controller="myCtrl">
 
-  <form id="submitForm" action="/" method="post" ng-model="dataentry">
+  <form id="submitForm" action="/" method="post">
     
     <div class="row">
       <div class="col-25">
         <label for="name">Name</label>
       </div>
       <div class="col-75">
-      <p><input type="text" name="name" ng-model="name" placeholder="Your name" id="name" ></p>
+      <p><input type="text" name="name" ng-model="name" placeholder="Your name" id="name" required ></p>
          </div>
     </div>
 
@@ -151,7 +151,7 @@ input[type=submit]:hover {
         <label for="lname">Age</label>
       </div>
       <div class="col-75">
-      <p><input type="text" name="age" ng-model="age" placeholder="Age" id="age"></p>
+      <p><input type="text" name="age" ng-model="age" placeholder="Age" id="age" required></p>
       </div>
     </div>
     <div class="row">
@@ -159,7 +159,7 @@ input[type=submit]:hover {
         <label for="gender">Gender</label>
       </div>
       <div class="col-75">
-      <p><input type="text" name="gender" ng-model="gender" placeholder="Gender" id="gender"></p>
+      <p><input type="text" name="gender" ng-model="gender" placeholder="Gender" id="gender" required></p>
          </div>
     </div>
     
@@ -169,7 +169,7 @@ input[type=submit]:hover {
           <label for="medc_num">Medicare Number</label>
         </div>
         <div class="col-75">
-        <p><input type="text" name="medc_num" ng-model="medc_num" placeholder="####-XXXX" id="medc_num" ></p>
+        <p><input type="text" name="medc_num" ng-model="medc_num" placeholder="####-XXXX" id="medc_num" required></p>
            </div>
       </div>
 
@@ -178,7 +178,7 @@ input[type=submit]:hover {
             <label for="datea">Part A Effective Date</label>
           </div>
           <div class="col-75">
-          <p><input type="text" name="datea" ng-model="datea"  id="datea" placeholder="YYYY-MM-DD" ></p>
+          <p><input type="text" name="datea" ng-model="datea"  id="datea" placeholder="YYYY-MM-DD" required></p>
              </div>
         </div>
 
@@ -187,7 +187,7 @@ input[type=submit]:hover {
               <label for="dateb">Part B Effective Date</label>
             </div>
             <div class="col-75">
-            <p><input type="text" name="dateb" ng-model="dateb"  id="dateb" placeholder="YYYY-MM-DD"></p>
+            <p><input type="text" name="dateb" ng-model="dateb"  id="dateb" placeholder="YYYY-MM-DD" required></p>
                </div>
           </div>
 
@@ -196,7 +196,7 @@ input[type=submit]:hover {
                 <label for="zipcode">Zipcode</label>
               </div>
               <div class="col-75">
-              <p> <input id="zipcode" type="text" name="zipcode" ng-model="zipcode_number" placeholder="Zipcode">
+              <p> <input id="zipcode" type="text" name="zipcode" ng-model="zipcode_number" placeholder="Zipcode" required>
                </p>
               </div>
             </div>
@@ -207,7 +207,8 @@ input[type=submit]:hover {
               </div>
               <div class="col-75">
               <p> 
-                  <select name="Available Plans">
+                  <select name="Plan" id="Plan" placeholder="Select Plan" required>
+                      
                       <option value="partc">Part C</option>
                       <option value="partd">Part D</option>
                     </select>
