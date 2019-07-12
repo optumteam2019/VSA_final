@@ -10,6 +10,7 @@ var pr_zipcode = null;
 var pr_medicare = "";
 var pr_datea = "";
 var pr_dateb = "";
+var pr_plan = "";
 var pr_enroll = "";
 
 app.use(bodyParser.json());
@@ -148,7 +149,15 @@ app.post('/dialogflow', express.json(), (req, res) => {
       const person_zip = agent.parameters["zip-code"];
       pr_zipcode = person_zip;
       //console.log('Zip Code : '+person_zip);
-      agent.add('The following plans are available for the zipcode ' + person_zip + '. Enroll after choosing the plan of your choice. Thank you for choosing UnitedHealth Care.')
+      agent.add('The following plans are available for the zipcode ' + person_zip + '. \nChoose from the available plans.')
+  }
+
+  function plan_func(agent)
+  {
+    var person_plan = agent.parameters["custom-plan"];
+    pr_plan = person_plan;
+
+    agent.add('Do you want to submit the application?');
   }
 
   function enroll_func(agent)
@@ -176,6 +185,7 @@ app.post('/dialogflow', express.json(), (req, res) => {
   intentMap.set('Enroll_Intent', enroll_func);
   intentMap.set('Medicare_Number_Intent', medicare_func);
   intentMap.set('Date_Intent', date_func);
+  intentMap.set('Select Plan Intent', plan_func);
   intentMap.set('Help_Intent', help_func);
   agent.handleRequest(intentMap)
 })
