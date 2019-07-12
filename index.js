@@ -156,7 +156,7 @@ app.post('/dialogflow', express.json(), (req, res) => {
   {
     var person_plan = agent.parameters["custom-plan"];
     pr_plan = person_plan;
-
+    console.log(pr_plan);
     agent.add('Do you want to submit the application?');
   }
 
