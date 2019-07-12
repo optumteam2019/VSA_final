@@ -81,14 +81,9 @@ app.post('/dialogflow', express.json(), (req, res) => {
     
   }
 
-  function welcome2()
-  {
-    agent.add('Hiiiii');
-  }
-
   function welcome () {
-    welcome2();
-    //agent.add('Hi, I am Krista from UnitedHealth Care! I will assist you in enrolling for the medicare advantage plan. \nWhat\'s your good name ?')
+    agent.add('Hi, I am Krista from UnitedHealth Care! I will assist you in enrolling for the medicare advantage plan. \nWhat\'s your good name ?')
+ 
   }
 
   function fall_func(agent)
@@ -304,7 +299,7 @@ app.post('/dialogflow', express.json(), (req, res) => {
       {
         agent.add('What is the zipcode of your current place of residence ?')
       }
-      else if(pr_plan)
+      else if(pr_plan=="")
       {
         agent.add('The following plans are available for the zipcode ' + pr_zipcode + '. \nChoose from the available plans.')
       }
