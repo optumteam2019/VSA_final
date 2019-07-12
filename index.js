@@ -185,7 +185,7 @@ app.post('/dialogflow', express.json(), (req, res) => {
   intentMap.set('Enroll_Intent', enroll_func);
   intentMap.set('Medicare_Number_Intent', medicare_func);
   intentMap.set('Date_Intent', date_func);
-  intentMap.set('Select Plan Intent', plan_func);
+  intentMap.set('Select_Plan_Intent', plan_func);
   intentMap.set('Help_Intent', help_func);
   agent.handleRequest(intentMap)
 })
