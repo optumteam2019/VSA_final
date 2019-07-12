@@ -41,7 +41,7 @@ app.controller('myCtrl', function($scope, $http, $interval){
               document.getElementById('dateb').value= result.dateb;
             }
 
-            document.getElementById('name').value=result.Plan;
+            document.getElementById('Plan').value=result.Plan;
 
             
             if(result.Enroll == "Enroll" || result.Enroll=="Submit")
@@ -211,8 +211,8 @@ input[type=submit]:hover {
               <p> 
                   <select name="Plan" id="Plan" required>
                       <option value="" disabled selected>Select Plan</option>
-                      <option value="partc">Part C</option>
-                      <option value="partd">Part D</option>
+                      <option value="Part C">Part C</option>
+                      <option value="Part D">Part D</option>
                     </select>
                </p>
               </div>
