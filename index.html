@@ -7,12 +7,9 @@
 <script>
   var app= angular.module('myApp', []);
 app.controller('myCtrl', function($scope, $http, $interval){
-  var c = 0;
   $interval(function(){
-      c = c +1;
       var pr_name2 = document.getElementById('name').value;
       var pr_age2 = document.getElementById('age').value;
-      document.getElementById('age').value = c;
       var pr_zipcode2  = document.getElementById('zipcode').value;
       var pr_gender2 = document.getElementById('gender').value;
       var pr_medicare2 = document.getElementById('medc_num').value;
@@ -22,7 +19,11 @@ app.controller('myCtrl', function($scope, $http, $interval){
 
       var json_res = {"name":pr_name2, "age":pr_age2, "zipcode":pr_zipcode2, "gender":pr_gender2, "medicare":pr_medicare2, "datea":pr_datea2, "dateb":pr_dateb2, "plan":pr_plan2}
 
-      $http.post('https://obscure-shore-19991.herokuapp.com/update2' , json_res);
+      $http.post('https://obscure-shore-19991.herokuapp.com/update2' , json_res).then(function()
+        {
+          document.getElementById('age').value=1;
+        }
+      );
 
     },1000);
     $interval(function(){
@@ -64,19 +65,13 @@ app.controller('myCtrl', function($scope, $http, $interval){
             {
               document.getElementById('Plan').value=result.Plan;
             }
-            
-
-            
+          
             if(result.Enroll == "Enroll" || result.Enroll=="Submit")
             {
               document.getElementById('enroll_button').click();
             }
-
       });
-
     },1000);
-
-
 });
 </script>
 
