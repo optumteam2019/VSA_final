@@ -82,7 +82,7 @@ app.post('/dialogflow', express.json(), (req, res) => {
   }
 
   function welcome () {
-    agent.add('Hi, What is your full name?')
+    agent.add('Hi! I will assist you in enrolling for the medicare advantage plan. \n Let\'s start by introducing ourselves. I am Krista ! What\'s your good name ?')
   }
 
   function fall_func(agent)
