@@ -123,7 +123,7 @@ app.post('/dialogflow', express.json(), (req, res) => {
       }
       else if(pr_plan)
       {
-        agent.add('The following plans are available for the zipcode ' + person_zip + '. \nChoose from the available plans.')
+        agent.add('The following plans are available for the zipcode ' + pr_zipcode + '. \nChoose from the available plans.')
       }
   }
 
@@ -167,7 +167,7 @@ app.post('/dialogflow', express.json(), (req, res) => {
         }
         else if(pr_plan)
         {
-          agent.add('The following plans are available for the zipcode ' + person_zip + '. \nChoose from the available plans.')
+          agent.add('The following plans are available for the zipcode ' + pr_zipcode + '. \nChoose from the available plans.')
         }
    
       }
@@ -183,7 +183,7 @@ app.post('/dialogflow', express.json(), (req, res) => {
       agent.add('What\'s your good name please ?');
     }
     else if(pr_age==null){
-      agent.add('What\'s your age '+agent.parameters["given-name"]+'?');
+      agent.add('What\'s your age ?');
     }
     else if(pr_medicare=="")
     {
@@ -203,7 +203,7 @@ app.post('/dialogflow', express.json(), (req, res) => {
     }
     else if(pr_plan)
     {
-      agent.add('The following plans are available for the zipcode ' + person_zip + '. \nChoose from the available plans.')
+      agent.add('The following plans are available for the zipcode ' + pr_zipcode + '. \nChoose from the available plans.')
     }
   }
 
@@ -236,7 +236,7 @@ app.post('/dialogflow', express.json(), (req, res) => {
     }
     else if(pr_plan)
     {
-      agent.add('The following plans are available for the zipcode ' + person_zip + '. \nChoose from the available plans.')
+      agent.add('The following plans are available for the zipcode ' + pr_zipcode + '. \nChoose from the available plans.')
     }
   }
 
@@ -263,7 +263,7 @@ app.post('/dialogflow', express.json(), (req, res) => {
       }
       else if(pr_dateb=="")
       {
-        agent.add('What\'s your PART B effective date as written on your Medical Health Insurance Card.');
+        agent.add('What\'s your PART B effective date as written on your Medical Health Insurance Card ?');
       }
       else if(pr_zipcode==null)
       {
@@ -271,7 +271,7 @@ app.post('/dialogflow', express.json(), (req, res) => {
       }
       else if(pr_plan)
       {
-        agent.add('The following plans are available for the zipcode ' + person_zip + '. \nChoose from the available plans.')
+        agent.add('The following plans are available for the zipcode ' + pr_zipcode + '. \nChoose from the available plans.')
       }
     }
     else
@@ -299,7 +299,7 @@ app.post('/dialogflow', express.json(), (req, res) => {
       }
       else if(pr_plan)
       {
-        agent.add('The following plans are available for the zipcode ' + person_zip + '. \nChoose from the available plans.')
+        agent.add('The following plans are available for the zipcode ' + pr_zipcode + '. \nChoose from the available plans.')
       }
     }
   }
@@ -334,7 +334,7 @@ app.post('/dialogflow', express.json(), (req, res) => {
       }
       else if(pr_plan=="")
       {
-        agent.add('The following plans are available for the zipcode ' + person_zip + '. \nChoose from the available plans.')
+        agent.add('The following plans are available for the zipcode ' + pr_zipcode + '. \nChoose from the available plans.')
       }
   }
 
