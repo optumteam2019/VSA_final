@@ -23,12 +23,23 @@ app.get('/update', function(req, res){
   var result={"Name":pr_name, "Age":pr_age, "Zipcode":pr_zipcode, "Gender":pr_gender,"medc_num":pr_medicare, "datea":pr_datea.slice(0,10), "dateb":pr_dateb.slice(0,10), "Plan":pr_plan, "Enroll":pr_enroll};
   
   res.send(result);
-
 });
 
+app.post('/update', function(res, req){
+  var result = JSON.stringify(req.body);
+  if(pr_name=="" && result.pr_name!="")
+  {
+    pr_name = result.pr_name;
+  }
+  if(pr_age==null && result.pr_age!=null)
+  {
+    pr_age = result.pr_age;
+  }
+})
+
 app.post('/', function(req, res){
-    //console.log(JSON.stringify(req.body));
-    var result= JSON.stringify(req.body);
+    console.log(JSON.stringify(req.body));
+    var result = JSON.stringify(req.body);
     
     res.send(result);
     
