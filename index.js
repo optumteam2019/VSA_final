@@ -31,9 +31,13 @@ app.post('/update', function(res, req){
   {
     pr_name = result.pr_name;
   }
-  if(pr_age==null && result.pr_age!=null)
+  if(pr_age==null)
   {
     pr_age = result.pr_age;
+  }
+  if(pr_gender=="")
+  {
+    pr_gender = result.pr_gender;
   }
 })
 
