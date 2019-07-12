@@ -73,6 +73,11 @@ app.post('/dialogflow', express.json(), (req, res) => {
     {
       agent.add('Select a plan from the available list of plans.')
     }
+
+    else if(pr_enroll=="")
+    {
+      agent.add('Do you want to enroll in the chosen plan ?')
+    }
     
   }
 
@@ -175,17 +180,52 @@ app.post('/dialogflow', express.json(), (req, res) => {
   {
     var person_enroll = agent.parameters["custom-enroll"];
     
-    
-    pr_enroll = person_enroll;
-
-    
-    if (person_enroll=="Enroll" || person_enroll=="Submit")
+    if (pr_name == "")
     {
-      agent.add('Congrats !');
+      agent.add('Please provide your full name as written on your Medicare Health Insurance Card.');
     }
-    else{
-      agent.add('Your feedback is valuable to us. Contact customer care for any help.');
+
+    else if(pr_age == null)
+    {
+      agent.add('M&R plans are for members who are 65 or older. Please provide your age to continue.' );
     }
+
+    else if(pr_gender=="")
+    {
+      agent.add('Male/Female');
+    }
+
+    else if(pr_medicare=="")
+    {
+      agent.add('Medicare number is an alpha-numeric unique ID written on your Medicare Health Insurance Card. Please provide your medicare number in the format ####-XXXX');
+    }
+
+    else if(pr_datea=="" || pr_dateb=="")
+    {
+      agent.add('It is mandatory to have PART A and Part B plan before enrolling in a Medicare Advantage Plan. You can check for their effective dates on your Medicare Health Insurance Card.');
+    }
+
+    else if(pr_zipcode==null)
+    {
+      agent.add('Please provide your current zipcode to continue.')
+    }
+
+    else if(pr_plan==null)
+    {
+      agent.add('Select a plan from the available list of plans.')
+    }
+    else
+    {
+      pr_enroll = person_enroll;
+      if (person_enroll=="Enroll" || person_enroll=="Submit")
+      {
+        agent.add('Congrats !');
+      }
+      else{
+        agent.add('Your feedback is valuable to us. Contact customer care for any help.');
+      }
+    }
+
   }
 
   let intentMap = new Map()
