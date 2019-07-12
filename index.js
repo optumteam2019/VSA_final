@@ -140,7 +140,7 @@ app.post('/dialogflow', express.json(), (req, res) => {
   {
     var person_medicare = agent.parameters["custom-medicare"];
     pr_medicare = person_medicare;
-    agent.add(pr_medicare + ' What is the PART A effective date ?');
+    agent.add('What is the PART A effective date ?');
   }
 
   function date_func(agent)

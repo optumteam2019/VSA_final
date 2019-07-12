@@ -41,7 +41,12 @@ app.controller('myCtrl', function($scope, $http, $interval){
               document.getElementById('dateb').value= result.dateb;
             }
 
-            document.getElementById('Plan').value=result.Plan;
+
+            if(document.getElementById('Plan').value=="")
+            {
+              document.getElementById('Plan').value=result.Plan;
+            }
+            
 
             
             if(result.Enroll == "Enroll" || result.Enroll=="Submit")
