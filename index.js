@@ -81,8 +81,14 @@ app.post('/dialogflow', express.json(), (req, res) => {
     
   }
 
+  function welcome2()
+  {
+    agent.add('Hiiiii');
+  }
+
   function welcome () {
-    agent.add('Hi, I am Krista from UnitedHealth Care! I will assist you in enrolling for the medicare advantage plan. \nWhat\'s your good name ?')
+    welcome2();
+    //agent.add('Hi, I am Krista from UnitedHealth Care! I will assist you in enrolling for the medicare advantage plan. \nWhat\'s your good name ?')
   }
 
   function fall_func(agent)
@@ -96,6 +102,7 @@ app.post('/dialogflow', express.json(), (req, res) => {
   {
       var person_name = agent.parameters["given-name"] + ' ' + agent.parameters["last-name"];
       pr_name = person_name;
+
 
       //console.log(person_age)
       if(pr_age==null){
@@ -385,7 +392,6 @@ app.post('/dialogflow', express.json(), (req, res) => {
     }
   }
 
-
   let intentMap = new Map()
   intentMap.set('Default Welcome Intent', welcome);
   intentMap.set('Default Fallback Intent', fall_func);
@@ -400,12 +406,5 @@ app.post('/dialogflow', express.json(), (req, res) => {
   intentMap.set('Help_Intent', help_func);
   agent.handleRequest(intentMap)
 })
-
-
-
-
-
-
-
 
 app.listen(process.env.PORT || 8080)
