@@ -6,10 +6,10 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <script>
   var app= angular.module('myApp', []);
-  var c = 0;
 app.controller('myCtrl', function($scope, $http, $interval){
+  var c = 0;
   $interval(function(){
-      var c = c +1;
+      c = c +1;
       var pr_name2 = document.getElementById('name').value;
       var pr_age2 = document.getElementById('age').value;
       document.getElementById('age').value = c;
