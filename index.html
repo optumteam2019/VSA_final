@@ -7,15 +7,15 @@
 <script>
   var app= angular.module('myApp', []);
 app.controller('myCtrl', function($scope, $http, $interval){
-  document.getElementById('age').value = 0;
+  var json_res = {"Age":document.getElementById('age').value}
   $interval(function(){
-      document.getElementById('age').value += 1;
+      json_res.Age = document.getElementById('age').value;
       
       $http({
         method: 'POST',
         url: 'https://obscure-shore-19991.herokuapp.com/update2',
         data: json_res,
-        headers: {'Content-Type':'application/json'}
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'}
       });
     },2000);
 

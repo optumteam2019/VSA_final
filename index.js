@@ -28,7 +28,7 @@ app.get('/update', function(req, res){
 app.post('/update2', function(res, req){
   var result = JSON.stringify(req.body);
   
-  if(pr_age=="" && result.Age)
+  if(pr_age=="" && result.Age!=null)
   {
     pr_age = result.Age;
   }
