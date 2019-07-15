@@ -25,7 +25,7 @@ app.get('/update', function(req, res){
   res.send(result);
 });
 
-app.post('/update', function(res, req){
+app.post('/update2', function(res, req){
   var result = JSON.stringify(req.body);
   
   if(pr_gender=="" && (result.Gender=="Male" || result.Gender=="Female"))
