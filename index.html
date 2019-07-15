@@ -10,7 +10,7 @@ app.controller('myCtrl', function($scope, $http, $interval){
 
 
   $interval(function(){
-      var p_gender = document.getElementById('Gender').value;
+      var p_gender = document.getElementById('gender').value;
       var json_res = {"Gender":p_gender};
       $http({
         method: 'POST',
