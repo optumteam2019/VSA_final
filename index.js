@@ -8,6 +8,7 @@ const CONNECTION_URL = "mongodb+srv://optumteam:cafeteriaburger@cluster0-gi5ar.m
 const DATABASE_NAME= "Member_Details";
 
 var database, collection;
+var port = process.env.PORT || 8080;
 
 const app = express();
 
@@ -430,7 +431,7 @@ app.post('/dialogflow', express.json(), (req, res) => {
   agent.handleRequest(intentMap)
 })
 
-app.listen(8080, () => {
+app.listen(port, () => {
   MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true }, (error, client) => {
       if(error) {
           throw error;
