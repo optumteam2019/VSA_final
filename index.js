@@ -1,6 +1,14 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const { WebhookClient } = require('dialogflow-fulfillment');
+const MongoClient = require('mongodb').MongoClient;
+const ObjectId = require('mongodb').ObjectID;
+
+const CONNECTION_URL = "mongodb+srv://optumteam:Cafeteriaburger@cluster0-gi5ar.mongodb.net/test?retryWrites=true&w=majority";
+const DATABASE_NAME= "Member_Details";
+
+var database, collections;
+
 const app = express();
 
 var pr_name = "";
@@ -35,10 +43,13 @@ app.post('/update2', function(res, req){
 })
 
 app.post('/', function(req, res){
-    console.log(JSON.stringify(req.body));
-    var result = JSON.stringify(req.body);
-    
-    res.send(result);
+  collection.insert(req.body, (error, result) => {
+    if(error) {
+        return res.status(500).send(error);
+    }
+    resp.send(result.result);
+});
+
     pr_name = "";
     pr_age = null;
     pr_gender = "";
@@ -419,4 +430,13 @@ app.post('/dialogflow', express.json(), (req, res) => {
   agent.handleRequest(intentMap)
 })
 
-app.listen(process.env.PORT || 8080)
+app.listen(8080, () => {
+  MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true }, (error, client) => {
+      if(error) {
+          throw error;
+      }
+      database = client.db(DATABASE_NAME);
+      collection = database.collection("New_Users");
+      
+  });
+})
