@@ -8,10 +8,15 @@
   var app= angular.module('myApp', []);
 app.controller('myCtrl', function($scope, $http, $interval){
 
-  $interval(function(){
-      $http.post('https://obscure-shore-19991.herokuapp.com/update').then(function(response){
-        
 
+  $interval(function(){
+      var p_gender = document.getElementById('Gender').value;
+      var json_res = {"Gender":p_gender};
+      $http({
+        method: 'POST',
+        url: 'https://obscure-shore-19991.herokuapp.com/update',
+        data: json_res,
+        headers: {'Content-Type':'application/json'}
       });
     },2000);
 
