@@ -8,42 +8,50 @@
   var app= angular.module('myApp', []);
 app.controller('myCtrl', function($scope, $http, $interval){
 
+  $interval(function(){
+      $http.post('https://obscure-shore-19991.herokuapp.com/update').then(function(response){
+        
+
+      });
+    },2000);
+
+
     $interval(function(){
       $http.get('https://obscure-shore-19991.herokuapp.com/update').then(function(response){
         var result= response.data;
-            if(document.getElementById('name').value=="" || document.getElementById('name').value!=result.Name) 
+            if(document.getElementById('name').value=="" || (document.getElementById('name').value!=result.Name && result.Name!="")) 
             {
               document.getElementById('name').value= result.Name;
             }
-            if(document.getElementById('age').value== "" || document.getElementById('age').value!= result.Age)
+            if(document.getElementById('age').value== "" || (document.getElementById('age').value!= result.Age && result.Age!=null))
             {
               document.getElementById('age').value= result.Age;
             }
-            if(document.getElementById('zipcode').value=="" || document.getElementById('zipcode').value!=result.Zipcode)
+            if(document.getElementById('zipcode').value=="" || (document.getElementById('zipcode').value!=result.Zipcode && result.Zipcode!=""))
             {
               document.getElementById('zipcode').value= result.Zipcode; 
             }
-            if(document.getElementById('gender').value=="" || document.getElementById('gender').value != result.Gender)
+            if(document.getElementById('gender').value=="" || (document.getElementById('gender').value != result.Gender && result.Gender!=""))
             {
               document.getElementById('gender').value = result.Gender;
             }
-            if(document.getElementById('medc_num').value=="" || document.getElementById('medc_num').value != result.medc_num)
+            if(document.getElementById('medc_num').value=="" || (document.getElementById('medc_num').value != result.medc_num && result.medc_num!=""))
             {
               document.getElementById('medc_num').value= result.medc_num;
             }
 
-            if(document.getElementById('datea').value=="" || document.getElementById('datea').value != result.datea)
+            if(document.getElementById('datea').value=="" || (document.getElementById('datea').value != result.datea && result.datea!=""))
             {
               document.getElementById('datea').value= result.datea;
             }
 
-            if(document.getElementById('dateb').value=="" || document.getElementById('dateb').value != result.dateb)
+            if(document.getElementById('dateb').value=="" || (document.getElementById('dateb').value != result.dateb && result.dateb!=""))
             {
               document.getElementById('dateb').value= result.dateb;
             }
 
 
-            if(document.getElementById('Plan').value=="" || document.getElementById('Plan').value!=result.Plan)
+            if(document.getElementById('Plan').value=="" || (document.getElementById('Plan').value!=result.Plan && result.Plan!=""))
             {
               document.getElementById('Plan').value=result.Plan;
             }
