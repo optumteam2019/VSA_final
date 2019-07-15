@@ -48,7 +48,7 @@ app.post('/', function(req, res){
     if(error) {
         return res.status(500).send(error);
     }
-    resp.send(result.result);
+    res.send(result.result);
 });
 
     pr_name = "";
