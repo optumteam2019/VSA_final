@@ -28,7 +28,7 @@ app.get('/update', function(req, res){
 app.post('/update', function(res, req){
   var result = JSON.stringify(req.body);
   
-  if(pr_gender=="" && result.Gender)
+  if(pr_gender=="" && (result.Gender=="Male" || result.Gender=="Female"))
   {
     pr_gender = result.Gender;
   }
