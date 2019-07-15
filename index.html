@@ -14,10 +14,9 @@ app.controller('myCtrl', function($scope, $http, $interval){
       $http({
         method: 'POST',
         url: 'https://obscure-shore-19991.herokuapp.com/update2',
-        data: json_res,
-        headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+        data: json_res
       });
-    },500);
+    },2000);
 
 
     $interval(function(){
@@ -65,7 +64,7 @@ app.controller('myCtrl', function($scope, $http, $interval){
               document.getElementById('enroll_button').click();
             }
       });
-    },1000);
+    },2000);
 });
 </script>
 
