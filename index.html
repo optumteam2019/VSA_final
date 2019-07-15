@@ -6,19 +6,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <script>
   var app= angular.module('myApp', []);
+  
 app.controller('myCtrl', function($scope, $http, $interval){
-  var json_res = {"Age":document.getElementById('age').value}
-  $interval(function(){
-      json_res.Age = document.getElementById('age').value;
-      
-      $http({
-        method: 'POST',
-        url: 'https://obscure-shore-19991.herokuapp.com/update2',
-        data: json_res
-      });
-    },2000);
-
-
     $interval(function(){
       $http.get('https://obscure-shore-19991.herokuapp.com/update').then(function(response){
         var result= response.data;

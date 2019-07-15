@@ -39,6 +39,15 @@ app.post('/', function(req, res){
     var result = JSON.stringify(req.body);
     
     res.send(result);
+    pr_name = "";
+    pr_age = null;
+    pr_gender = "";
+    pr_zipcode = null;
+    pr_medicare = "";
+    pr_datea = "";
+    pr_dateb = "";
+    pr_plan = "";
+    pr_enroll = "";
     
 });
 
