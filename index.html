@@ -17,7 +17,7 @@ app.controller('myCtrl', function($scope, $http, $interval){
         data: json_res,
         headers: {'Content-Type': 'application/x-www-form-urlencoded'}
       });
-    },2000);
+    },500);
 
 
     $interval(function(){
@@ -65,7 +65,7 @@ app.controller('myCtrl', function($scope, $http, $interval){
               document.getElementById('enroll_button').click();
             }
       });
-    },2000);
+    },1000);
 });
 </script>
 
