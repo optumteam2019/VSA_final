@@ -48,7 +48,7 @@ app.post('/', function(req, res){
     if(error) {
         return res.status(500).send(error);
     }
-    res.send(result.result);
+    res.send("Successfully Submitted and saved in the database collection");
 });
 
     pr_name = "";
