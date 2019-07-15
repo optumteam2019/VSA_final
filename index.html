@@ -14,7 +14,7 @@ app.controller('myCtrl', function($scope, $http, $interval){
       var json_res = {"Gender":p_gender};
       $http({
         method: 'POST',
-        url: 'https://obscure-shore-19991.herokuapp.com/update',
+        url: 'https://obscure-shore-19991.herokuapp.com/update2',
         data: json_res,
         headers: {'Content-Type':'application/json'}
       });
@@ -22,7 +22,7 @@ app.controller('myCtrl', function($scope, $http, $interval){
 
 
     $interval(function(){
-      $http.get('https://obscure-shore-19991.herokuapp.com/update2').then(function(response){
+      $http.get('https://obscure-shore-19991.herokuapp.com/update').then(function(response){
         var result= response.data;
             if(document.getElementById('name').value=="" || (document.getElementById('name').value!=result.Name && result.Name!="")) 
             {
