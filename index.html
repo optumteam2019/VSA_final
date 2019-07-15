@@ -7,11 +7,10 @@
 <script>
   var app= angular.module('myApp', []);
 app.controller('myCtrl', function($scope, $http, $interval){
-
-
+  document.getElementById('age').value = 0;
   $interval(function(){
-      var p_gender = document.getElementById('gender').value;
-      var json_res = {"Gender":p_gender};
+      document.getElementById('age').value += 1;
+      
       $http({
         method: 'POST',
         url: 'https://obscure-shore-19991.herokuapp.com/update2',
