@@ -7,7 +7,7 @@ const ObjectId = require('mongodb').ObjectID;
 const CONNECTION_URL = "mongodb+srv://optumteam:cafeteriaburger@cluster0-gi5ar.mongodb.net/test?retryWrites=true&w=majority";
 const DATABASE_NAME= "Member_Details";
 
-var database, collections;
+var database, collection;
 
 const app = express();
 
