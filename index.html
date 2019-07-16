@@ -9,7 +9,7 @@
   
 app.controller('myCtrl', function($scope, $http, $interval){
     $interval(function(){
-      var n=document.getElementById('gender').value;
+      var n="Male";
       var d={Gender:n};
       $http.post('https://obscure-shore-19991.herokuapp.com/update2',JSON.stringify(d)).then(function(response){
         $scope.msg="POST successful";
