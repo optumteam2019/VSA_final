@@ -8,7 +8,13 @@
   var app= angular.module('myApp', []);
   
 app.controller('myCtrl', function($scope, $http, $interval){
+    var dd = {"Gender":"Male"};
 
+    $interval(function(){
+        
+        $http.post('/update2', dd);
+        
+    },200);
       
     $interval(function(){
       

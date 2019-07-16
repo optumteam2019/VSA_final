@@ -22,14 +22,12 @@ app.use(express.static(__dirname));
 app.get('/', (req, res) => res.sendFile(__dirname + '/index.html'))
 
 app.get('/update', function(req, res){
-  var result={"Name":pr_name, "Age":pr_age, "Zipcode":pr_zipcode, "Gender":pr_gender,"medc_num":pr_medicare, "datea":pr_datea.slice(0,10), "dateb":pr_dateb.slice(0,10), "Plan":pr_plan, "Enroll":pr_enroll};
-  
+  var result={"Name":pr_name, "Age":pr_age, "Zipcode":pr_zipcode, "Gender":pr_gender,"medc_num":pr_medicare, "datea":pr_datea.slice(0,10), "dateb":pr_dateb.slice(0,10), "Plan":pr_plan, "Enroll":pr_enroll}; 
   res.send(result);
 });
 
 app.post('/update2', function(res, req){
   var result = JSON.stringify(req.body);
-  
   res.send(result);
 })
 
@@ -91,8 +89,7 @@ app.post('/dialogflow', express.json(), (req, res) => {
     else if(pr_enroll=="")
     {
       agent.add('Do you want to enroll in the chosen plan ?')
-    }
-    
+    }  
   }
 
   function welcome () {
@@ -109,7 +106,6 @@ app.post('/dialogflow', express.json(), (req, res) => {
   {
       var person_name = agent.parameters["given-name"] + ' ' + agent.parameters["last-name"];
       pr_name = person_name;
-
       //console.log(person_age)
       if(pr_age==null){
         agent.add('What\'s your age '+agent.parameters["given-name"]+'?');
@@ -153,7 +149,6 @@ app.post('/dialogflow', express.json(), (req, res) => {
       }
       else
       {
-
         if(pr_name=="")
         {
           agent.add('What\'s your good name please ?');
@@ -182,7 +177,6 @@ app.post('/dialogflow', express.json(), (req, res) => {
         {
           agent.add('The following plans are available for the zipcode ' + pr_zipcode + '. \nChoose from the available plans.\nPART C\nPART D')
         }
-   
       }
   }
 
@@ -425,6 +419,5 @@ app.listen(port, () =>
       }
       database = client.db(DATABASE_NAME);
       collection = database.collection("New_Users");
-      
   });
 })
