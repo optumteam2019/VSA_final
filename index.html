@@ -16,7 +16,7 @@ app.controller('myCtrl', function($scope, $http, $interval){
       });
 
 
-      $http.get('https://obscure-shore-19991.herokuapp.com/update').then(function(response){
+      /*$http.get('https://obscure-shore-19991.herokuapp.com/update').then(function(response){
         var result= response.data;
             if(document.getElementById('name').value=="" || (document.getElementById('name').value!=result.Name && result.Name!="")) 
             {
@@ -59,7 +59,7 @@ app.controller('myCtrl', function($scope, $http, $interval){
             {
               document.getElementById('enroll_button').click();
             }
-      });
+      });*/
     },1000);
 });
 </script>
