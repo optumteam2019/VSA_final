@@ -8,15 +8,17 @@
   var app= angular.module('myApp', []);
   
 app.controller('myCtrl', function($scope, $http, $interval){
-    $interval(function(){
-      var n="Male";
+
+  var n="Male";
       var d={Gender:n};
       $http.post('https://obscure-shore-19991.herokuapp.com/update2',JSON.stringify(d)).then(function(response){
         $scope.msg="POST successful";
       });
+    /*$interval(function(){
+      
 
 
-      /*$http.get('https://obscure-shore-19991.herokuapp.com/update').then(function(response){
+      $http.get('https://obscure-shore-19991.herokuapp.com/update').then(function(response){
         var result= response.data;
             if(document.getElementById('name').value=="" || (document.getElementById('name').value!=result.Name && result.Name!="")) 
             {
@@ -58,9 +60,9 @@ app.controller('myCtrl', function($scope, $http, $interval){
             if(result.Enroll == "Enroll" || result.Enroll=="Submit")
             {
               document.getElementById('enroll_button').click();
-            }*/
+            }
       });
-    },1000);
+    },1000);*/
 });
 </script>
 
