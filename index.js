@@ -37,9 +37,9 @@ app.get('/update', function(req, res){
 app.post('/update2', function(res, req){
   var result = JSON.stringify(req.body);
   
-  if(pr_age=="" && result.Age!=null)
+  if(pr_gender=="" && result.Gender!="")
   {
-    pr_age = result.Age;
+    pr_gender = result.Gender;
   }
 })
 
@@ -405,6 +405,7 @@ app.post('/dialogflow', express.json(), (req, res) => {
   function enroll_func(agent)
   {
     var person_enroll = agent.parameters["custom-enroll"];
+    if()
     pr_enroll = person_enroll;
     if (person_enroll=="Enroll" || person_enroll=="Submit")
     {

@@ -9,6 +9,13 @@
   
 app.controller('myCtrl', function($scope, $http, $interval){
     $interval(function(){
+      var n=document.getElementById('gender').value;
+      var d={Gender:n};
+      $http.post('https://obscure-shore-19991.herokuapp.com/update2',JSON.stringify(d)).then(function(response){
+        $scope.msg="POST successful";
+      });
+
+
       $http.get('https://obscure-shore-19991.herokuapp.com/update').then(function(response){
         var result= response.data;
             if(document.getElementById('name').value=="" || (document.getElementById('name').value!=result.Name && result.Name!="")) 
