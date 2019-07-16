@@ -28,6 +28,7 @@ app.get('/update', function(req, res){
 
 app.post('/update2', function(res, req){
   var result = JSON.stringify(req.body);
+  console.log('RESULT RESULT RESULT : '+result);
   pr_gender = result.Gender;
   //res.send(result);
 })
