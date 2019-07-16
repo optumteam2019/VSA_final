@@ -83,7 +83,7 @@ app.post('/dialogflow', express.json(), (req, res) => {
       agent.add('Please provide your current zipcode to continue.')
     }
 
-    else if(pr_plan==null)
+    else if(pr_plan=="")
     {
       agent.add('Select a plan from the following available list of plans : \nPART C\nPART D')
     }
