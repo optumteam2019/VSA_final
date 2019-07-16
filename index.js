@@ -12,15 +12,8 @@ var port = process.env.PORT || 8080;
 
 const app = express();
 
-var pr_name = "";
-var pr_age = null;
-var pr_gender = "";
-var pr_zipcode = null;
-var pr_medicare = "";
-var pr_datea = "";
-var pr_dateb = "";
-var pr_plan = "";
-var pr_enroll = "";
+var pr_name = ""; var pr_age = null; var pr_gender = ""; var pr_zipcode = null; var pr_medicare = "";
+var pr_datea = ""; var pr_dateb = ""; var pr_plan = ""; var pr_enroll = "";
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
@@ -40,23 +33,18 @@ app.post('/update2', function(res, req){
   res.send(result);
 })
 
-app.post('/', function(req, res){
-  collection.insert(req.body, (error, result) => {
+app.post('/', function(req, res)
+{
+  collection.insert(req.body, (error, result) => 
+  {
     if(error) {
         return res.status(500).send(error);
     }
     res.send("Successfully Submitted and saved in the database collection");
-});
+  });
 
-    pr_name = "";
-    pr_age = null;
-    pr_gender = "";
-    pr_zipcode = null;
-    pr_medicare = "";
-    pr_datea = "";
-    pr_dateb = "";
-    pr_plan = "";
-    pr_enroll = "";
+    pr_name = ""; pr_age = null; pr_gender = ""; pr_zipcode = null; pr_medicare = ""; 
+    pr_datea = ""; pr_dateb = ""; pr_plan = ""; pr_enroll = "";
     
 });
 
@@ -114,8 +102,6 @@ app.post('/dialogflow', express.json(), (req, res) => {
 
   function fall_func(agent)
   {
-    //check_next();
-    
     agent.add('Sorry I missed that ! Can you please repeat ??');
   }
 
@@ -123,7 +109,6 @@ app.post('/dialogflow', express.json(), (req, res) => {
   {
       var person_name = agent.parameters["given-name"] + ' ' + agent.parameters["last-name"];
       pr_name = person_name;
-
 
       //console.log(person_age)
       if(pr_age==null){
@@ -429,8 +414,10 @@ app.post('/dialogflow', express.json(), (req, res) => {
   agent.handleRequest(intentMap)
 })
 
-app.listen(port, () => {
-  MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true }, (error, client) => {
+app.listen(port, () => 
+{
+  MongoClient.connect(CONNECTION_URL, { useNewUrlParser: true }, (error, client) => 
+  {
       if(error) {
           throw error;
       }
