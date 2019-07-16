@@ -195,7 +195,7 @@ app.post('/dialogflow', express.json(), (req, res) => {
         }
         else if(pr_plan)
         {
-          agent.add('The following plans are available for the zipcode ' + pr_zipcode + '. \nChoose from the available plans.')
+          agent.add('The following plans are available for the zipcode ' + pr_zipcode + '. \nChoose from the available plans.\nPART C\nPART D')
         }
    
       }
