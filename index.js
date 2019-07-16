@@ -405,7 +405,7 @@ app.post('/dialogflow', express.json(), (req, res) => {
   function enroll_func(agent)
   {
     var person_enroll = agent.parameters["custom-enroll"];
-    if()
+    
     pr_enroll = person_enroll;
     if (person_enroll=="Enroll" || person_enroll=="Submit")
     {
