@@ -186,49 +186,7 @@ app.post('/dialogflow', express.json(), (req, res) => {
       }
   }
 
-  function name_age_func(agent)
-  {
-    var person_name = agent.parameters["given-name"] + ' ' + agent.parameters["last-name"];
-    pr_name = person_name;
-
-    const person_age = (agent.parameters["age"]).amount;
-    pr_age = person_age;
-
-    if(person_age<65)
-    {
-      agent.add('You are not eligible for enrolling in this plan');
-    }
-    else
-    {
-
-      if(pr_gender=="")
-      {
-        agent.add('What\'s your gender?')
-      }
-      else if(pr_medicare=="")
-      {
-        agent.add('Please provide your Medicare Number in the Format : ####-XXXX)?');
-      }
-      else if(pr_datea=="")
-      {
-        agent.add('What\'s your PART A effective date as written on your Medical Health Insurance Card.');
-      }
-      else if(pr_dateb=="")
-      {
-        agent.add('What\'s your PART B effective date as written on your Medical Health Insurance Card.');
-      }
-      else if(pr_zipcode==null)
-      {
-        agent.add('What is the zipcode of your current place of residence ?')
-      }
-      else if(pr_plan)
-      {
-        agent.add('The following plans are available for the zipcode ' + pr_zipcode + '. \nChoose from the available plans.\nPART C\nPART D')
-      }
  
-    }
-
-  }
 
   function gender_func(agent)
   {
@@ -447,7 +405,6 @@ app.post('/dialogflow', express.json(), (req, res) => {
   intentMap.set('Default Welcome Intent', welcome);
   intentMap.set('Default Fallback Intent', fall_func);
   intentMap.set('Name_Intent', name_fun);
-  intentMap.set('Name_Age_Intent', name_age_func);
   intentMap.set('Age_Intent', age_fun);
   intentMap.set('Zipcode_Intent', zip_func)
   intentMap.set('Gender_Intent', gender_func);
