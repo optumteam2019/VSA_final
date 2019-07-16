@@ -9,12 +9,8 @@
   
 app.controller('myCtrl', function($scope, $http, $interval){
 
-  var n="Male";
-      var d={Gender:n};
-      $http.post('https://obscure-shore-19991.herokuapp.com/update2',JSON.stringify(d)).then(function(response){
-        $scope.msg="POST successful";
-      });
-    /*$interval(function(){
+      
+    $interval(function(){
       
 
 
@@ -62,7 +58,7 @@ app.controller('myCtrl', function($scope, $http, $interval){
               document.getElementById('enroll_button').click();
             }
       });
-    },1000);*/
+    },1000);
 });
 </script>
 
