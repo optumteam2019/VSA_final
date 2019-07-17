@@ -34,22 +34,11 @@ app.controller('myCtrl', function($scope, $http, $interval){
             }
             if(document.getElementById('datea').value=="" || (document.getElementById('datea').value != result.datea && result.datea!=""))
             {
-              var d= result.datea;
-              var year=d.slice(0,4);
-              var month=d.slice(5,7);
-              var day=d.slice(8,10);
-              var final_date = month+"-"+date+"-"+year;
-              document.getElementById('datea').value = final_date;
-
+              document.getElementById('datea').value= result.datea;
             }
             if(document.getElementById('dateb').value=="" || (document.getElementById('dateb').value != result.dateb && result.dateb!=""))
             {
-              var d= result.dateb;
-              var year=d.slice(0,4);
-              var month=d.slice(5,7);
-              var day=d.slice(8,10);
-              var final_date = month+"-"+date+"-"+year;
-              document.getElementById('dateb').value = final_date;
+              document.getElementById('dateb').value= result.dateb;
             }
             if(document.getElementById('plan').value=="" || (document.getElementById('plan').value!=result.Plan && result.Plan!=""))
             {
@@ -198,7 +187,7 @@ input[type=submit]:hover {
               <label for="dateb">Part B Effective Date</label>
             </div>
             <div class="col-75">
-            <p><input type="text" name="dateb" ng-model="dateb"  id="dateb" placeholder="YYYY-MM-DD" required></p>
+            <p><input type="text" name="dateb" ng-model="dateb"  id="dateb" placeholder="MM-DD-YYYY" required></p>
                </div>
           </div>
 

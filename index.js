@@ -25,8 +25,24 @@ app.use(express.static(__dirname));
 app.get('/', (req, res) => res.sendFile(__dirname + '/index.html'))
 
 app.get('/update', function(req, res){
-  var result={"Name":pr_name, "Age":pr_age, "Zipcode":pr_zipcode, "Gender":pr_gender,"medc_num":pr_medicare, "datea":pr_datea.slice(0,10), "dateb":pr_dateb.slice(0,10), "Plan":pr_plan, "Enroll":pr_enroll}; 
-  pr_enroll = ""
+  if(pr_datea!="")
+  {
+    var da = pr_datea.slice(0,10);
+    var yeara = da.slice(0,4);
+    var montha = da.slice(5,7);
+    var daya = da.slice(8,10);
+    var final_datea = montha+"-"+datea+"-"+yeara;
+  }
+  if(pr_dateb!="")
+  {
+    var db = pr_dateb.slice(0,10);
+    var yearb = db.slice(0,4);
+    var monthb = db.slice(5,7);
+    var dayb = db.slice(8,10);
+    var final_dateb = monthb+"-"+dateb+"-"+year;
+  }
+  var result={"Name":pr_name, "Age":pr_age, "Zipcode":pr_zipcode, "Gender":pr_gender,"medc_num":pr_medicare, "datea":final_datea, "dateb":final_dateb, "Plan":pr_plan, "Enroll":pr_enroll}; 
+  pr_enroll = "";
   res.send(result);
 });
 
