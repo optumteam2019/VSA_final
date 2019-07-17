@@ -27,7 +27,6 @@ app.get('/', (req, res) => res.sendFile(__dirname + '/index.html'))
 app.get('/update', function(req, res){
   var result={"Name":pr_name, "Age":pr_age, "Zipcode":pr_zipcode, "Gender":pr_gender,"medc_num":pr_medicare, "datea":pr_datea.slice(0,10), "dateb":pr_dateb.slice(0,10), "Plan":pr_plan, "Enroll":pr_enroll}; 
   pr_enroll = ""
-  //console.log(result);
   res.send(result);
 });
 
@@ -40,10 +39,8 @@ app.post('/', function(req, res)
     }
     res.send("Successfully Submitted and saved in the database collection");
   });
-
     pr_name = ""; pr_age = null; pr_gender = ""; pr_zipcode = null; pr_medicare = ""; 
-    pr_datea = ""; pr_dateb = ""; pr_plan = ""; pr_enroll = "";
-    
+    pr_datea = ""; pr_dateb = ""; pr_plan = ""; pr_enroll = "";   
 });
 
 app.post('/dialogflow', express.json(), (req, res) => {
@@ -107,7 +104,7 @@ app.post('/dialogflow', express.json(), (req, res) => {
 
   function fall_func(agent)
   {
-    agent.add('Sorry I missed that ! Can you please repeat ??');
+    agent.add('Sorry I missed that ! Can you please repeat ?');
   }
 
   function name_fun (agent)
@@ -202,7 +199,6 @@ app.post('/dialogflow', express.json(), (req, res) => {
       }
   }
 
- 
   function gender_func(agent)
   {
     var person_gender = agent.parameters["custom-gender"];

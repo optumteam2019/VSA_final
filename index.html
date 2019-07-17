@@ -10,7 +10,6 @@
 app.controller('myCtrl', function($scope, $http, $interval){
       
     $interval(function(){
-      
       $http.get('https://obscure-shore-19991.herokuapp.com/update').then(function(response){
         var result= response.data;
             if(document.getElementById('name').value=="" || (document.getElementById('name').value!=result.Name && result.Name!="")) 
@@ -24,39 +23,27 @@ app.controller('myCtrl', function($scope, $http, $interval){
             if(document.getElementById('zipcode').value=="" || (document.getElementById('zipcode').value!=result.Zipcode && result.Zipcode!=null))
             {
               document.getElementById('zipcode').value= result.Zipcode; 
-              /*document.myform.Plan.options.length=null;
-              if(result.Zipcode==90024)
-              {
-                document.myform.Plan.options[0]= new Option("Plan C", "Plan C", true, false);
-              }*/
             }
             if(document.getElementById('gender').value=="" || (document.getElementById('gender').value != result.Gender && result.Gender!=""))
             {
               document.getElementById('gender').value = result.Gender;
-              
-              
             }
             if(document.getElementById('medc_num').value=="" || (document.getElementById('medc_num').value != result.medc_num && result.medc_num!=""))
             {
               document.getElementById('medc_num').value= result.medc_num;
             }
-
             if(document.getElementById('datea').value=="" || (document.getElementById('datea').value != result.datea && result.datea!=""))
             {
               document.getElementById('datea').value= result.datea;
             }
-
             if(document.getElementById('dateb').value=="" || (document.getElementById('dateb').value != result.dateb && result.dateb!=""))
             {
               document.getElementById('dateb').value= result.dateb;
             }
-
-
             if(document.getElementById('plan').value=="" || (document.getElementById('plan').value!=result.Plan && result.Plan!=""))
             {
               document.getElementById('plan').value=result.Plan;
             }
-          
             if(result.Enroll == "Enroll" || result.Enroll=="Submit")
             {
               document.getElementById('enroll_button').click();
@@ -164,7 +151,7 @@ input[type=submit]:hover {
         <label for="lname">Age</label>
       </div>
       <div class="col-75">
-      <p><input type="text" name="age" ng-model="age" placeholder="Age" id="age"></p>
+      <p><input type="text" name="age" ng-model="age" placeholder="Age" id="age" required></p>
       </div>
     </div>
     <div class="row">
@@ -172,7 +159,7 @@ input[type=submit]:hover {
         <label for="gender">Gender</label>
       </div>
       <div class="col-75">
-      <p><input type="text" name="gender" ng-model="gender" placeholder="Gender" id="gender"></p>
+      <p><input type="text" name="gender" ng-model="gender" placeholder="Gender" id="gender" required></p>
          </div>
     </div>
     
@@ -182,7 +169,7 @@ input[type=submit]:hover {
           <label for="medc_num">Medicare Number</label>
         </div>
         <div class="col-75">
-        <p><input type="text" name="medc_num" ng-model="medc_num" placeholder="####-XXXX" id="medc_num"></p>
+        <p><input type="text" name="medc_num" ng-model="medc_num" placeholder="####XXXX" id="medc_num" required></p>
            </div>
       </div>
 
@@ -191,7 +178,7 @@ input[type=submit]:hover {
             <label for="datea">Part A Effective Date</label>
           </div>
           <div class="col-75">
-          <p><input type="text" name="datea" ng-model="datea"  id="datea" placeholder="YYYY-MM-DD" ></p>
+          <p><input type="text" name="datea" ng-model="datea"  id="datea" placeholder="YYYY-MM-DD" required></p>
              </div>
         </div>
 
@@ -200,7 +187,7 @@ input[type=submit]:hover {
               <label for="dateb">Part B Effective Date</label>
             </div>
             <div class="col-75">
-            <p><input type="text" name="dateb" ng-model="dateb"  id="dateb" placeholder="YYYY-MM-DD" ></p>
+            <p><input type="text" name="dateb" ng-model="dateb"  id="dateb" placeholder="YYYY-MM-DD" required></p>
                </div>
           </div>
 
@@ -209,8 +196,8 @@ input[type=submit]:hover {
                 <label for="zipcode">Zipcode</label>
               </div>
               <div class="col-75">
-              <p> <input id="zipcode" type="text" name="zipcode" ng-model="zipcode_number" placeholder="Zipcode" >
-               </p>
+                <p> <input id="zipcode" type="text" name="zipcode" ng-model="zipcode_number" placeholder="Zipcode" required>
+                </p>
               </div>
             </div>
 
@@ -219,13 +206,9 @@ input[type=submit]:hover {
                 <label for="map">Medicare Advantage Plan</label>
               </div>
               <div class="col-75">
-
-                  <p> <input id="plan" type="text" name="plan" ng-model="plan" placeholder="Plan Name" >
-                  </p>
-              
-                  
-               
-                  </div>
+                  <p> <input id="plan" type="text" name="plan" ng-model="plan" placeholder="Plan Name" required>
+                  </p>              
+              </div>
             </div>
 
     <div class="row">
