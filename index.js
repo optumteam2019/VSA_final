@@ -249,7 +249,7 @@ app.post('/dialogflow', express.json(), (req, res) => {
       agent.add('What\'s your good name please ?');
     }
     else if(pr_age==null){
-      agent.add('What\'s your age '+agent.parameters["given-name"]+'?');
+      agent.add('What\'s your age ?');
     }
     else if(pr_gender=="")
     {
@@ -291,7 +291,7 @@ app.post('/dialogflow', express.json(), (req, res) => {
         agent.add('What\'s your good name please ?');
       }
       else if(pr_age==null){
-        agent.add('What\'s your age '+agent.parameters["given-name"]+'?');
+        agent.add('What\'s your age ?');
       }
       else if(pr_gender=="")
       {
@@ -330,7 +330,7 @@ app.post('/dialogflow', express.json(), (req, res) => {
         agent.add('What\'s your good name please ?');
       }
       else if(pr_age==null){
-        agent.add('What\'s your age '+agent.parameters["given-name"]+'?');
+        agent.add('What\'s your age ?');
       }
       else if(pr_gender=="")
       {
@@ -368,7 +368,7 @@ app.post('/dialogflow', express.json(), (req, res) => {
         agent.add('What\'s your good name please ?');
       }
       else if(pr_age==null){
-        agent.add('What\'s your age '+agent.parameters["given-name"]+'?');
+        agent.add('What\'s your age ?');
       }
       else if(pr_gender=="")
       {
@@ -408,7 +408,7 @@ app.post('/dialogflow', express.json(), (req, res) => {
       agent.add('What\'s your good name please ?');
     }
     else if(pr_age==null){
-      agent.add('What\'s your age '+agent.parameters["given-name"]+'?');
+      agent.add('What\'s your age ?');
     }
     else if(pr_gender=="")
     {
