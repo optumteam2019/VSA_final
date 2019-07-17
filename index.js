@@ -63,7 +63,7 @@ app.post('/', function(req, res)
     res.send("Successfully Submitted and saved in the database collection");
   });
     pr_name = ""; pr_age = null; pr_gender = ""; pr_zipcode = null; pr_medicare = ""; 
-    pr_datea = ""; pr_dateb = ""; pr_plan = ""; pr_enroll = "";   
+    pr_datea = ""; pr_dateb = ""; pr_plan = ""; pr_enroll = ""; dac = 0; dbc = 0;
 });
 
 app.post('/dialogflow', express.json(), (req, res) => {
