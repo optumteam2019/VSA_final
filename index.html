@@ -21,14 +21,14 @@ app.controller('myCtrl', function($scope, $http, $interval){
             {
               document.getElementById('age').value= result.Age;
             }
-            if(document.getElementById('zipcode').value=="" || (document.getElementById('zipcode').value!=result.Zipcode && result.Zipcode!=""))
+            if(document.getElementById('zipcode').value=="" || (document.getElementById('zipcode').value!=result.Zipcode && result.Zipcode!=null))
             {
               document.getElementById('zipcode').value= result.Zipcode; 
-              document.myform.Plan.options.length=null;
+              /*document.myform.Plan.options.length=null;
               if(result.Zipcode==90024)
               {
                 document.myform.Plan.options[0]= new Option("Plan C", "Plan C", true, false);
-              }
+              }*/
             }
             if(document.getElementById('gender').value=="" || (document.getElementById('gender').value != result.Gender && result.Gender!=""))
             {
