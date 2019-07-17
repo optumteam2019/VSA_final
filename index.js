@@ -15,8 +15,8 @@ const app = express();
 var pr_name = ""; var pr_age = null; var pr_gender = ""; var pr_zipcode = null; var pr_medicare = "";
 var pr_datea = ""; var pr_dateb = ""; var pr_plan = ""; var pr_enroll = "";
 
-var plan_list1 = "\nPlan 1\nPlan 2\nPlan 3";
-var plan_list2 = "\nPlan 3\nPlan 4\nPlan 6";
+var plan_list1 = "\nPlan 1 : AARP MedicareComplete SecureHorizons Focus\nPlan 2 : AARP MedicareComplete SecureHorizons Premier";
+var plan_list2 = "\nPlan 3 : AARP MedicareComplete SecureHorizons Assure\nPlan 4 : AARP MedicareComplete SecureHorizons Essential";
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
