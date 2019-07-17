@@ -196,6 +196,7 @@ app.post('/dialogflow', express.json(), (req, res) => {
           {
             agent.add('Select a plan from the following available list of plans : \n'+plan_list2);
           }
+        }
       }
   }
 
