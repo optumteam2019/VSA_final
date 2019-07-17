@@ -31,7 +31,8 @@ app.get('/update', function(req, res){
     var yeara = da.slice(0,4);
     var montha = da.slice(5,7);
     var daya = da.slice(8,10);
-    var final_datea = montha+"-"+datea+"-"+yeara;
+    var final_datea = montha+"-"+daya+"-"+yeara;
+    pr_datea = final_datea;
   }
   if(pr_dateb!="")
   {
@@ -39,9 +40,10 @@ app.get('/update', function(req, res){
     var yearb = db.slice(0,4);
     var monthb = db.slice(5,7);
     var dayb = db.slice(8,10);
-    var final_dateb = monthb+"-"+dateb+"-"+year;
+    var final_dateb = monthb+"-"+dayb+"-"+yearb;
+    pr_dateb = final_dateb;
   }
-  var result={"Name":pr_name, "Age":pr_age, "Zipcode":pr_zipcode, "Gender":pr_gender,"medc_num":pr_medicare, "datea":final_datea, "dateb":final_dateb, "Plan":pr_plan, "Enroll":pr_enroll}; 
+  var result={"Name":pr_name, "Age":pr_age, "Zipcode":pr_zipcode, "Gender":pr_gender,"medc_num":pr_medicare, "datea":pr_datea, "dateb":pr_dateb, "Plan":pr_plan, "Enroll":pr_enroll}; 
   pr_enroll = "";
   res.send(result);
 });
