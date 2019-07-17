@@ -15,6 +15,9 @@ const app = express();
 var pr_name = ""; var pr_age = null; var pr_gender = ""; var pr_zipcode = null; var pr_medicare = "";
 var pr_datea = ""; var pr_dateb = ""; var pr_plan = ""; var pr_enroll = "";
 
+var plan_list1 = {"\nPlan 1\nPlan 2\nPlan 3"};
+var plan_list2 = {"\nPlan 3\nPlan 4\nPlan 6"};
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static(__dirname));
@@ -78,7 +81,15 @@ app.post('/dialogflow', express.json(), (req, res) => {
 
     else if(pr_plan=="")
     {
-      agent.add('Select a plan from the following available list of plans : \nPART C\nPART D')
+      if(pr_zipcode==90024)
+      {
+        agent.add('Select a plan from the following available list of plans : \n'+plan_list1);
+      }
+      else if(pr_zipcode==90025)
+      {
+        agent.add('Select a plan from the following available list of plans : \n'+plan_list2);
+      }
+      
     }
 
     else if(pr_enroll=="")
@@ -127,7 +138,14 @@ app.post('/dialogflow', express.json(), (req, res) => {
       }
       else if(pr_plan)
       {
-        agent.add('The following plans are available for the zipcode ' + pr_zipcode + '. \nChoose from the available plans.\nPART C\nPART D')
+        if(pr_zipcode==90024)
+        {
+          agent.add('Select a plan from the following available list of plans : \n'+plan_list1);
+        }
+        else if(pr_zipcode==90025)
+        {
+          agent.add('Select a plan from the following available list of plans : \n'+plan_list2);
+        }
       }
   }
 
@@ -170,13 +188,18 @@ app.post('/dialogflow', express.json(), (req, res) => {
         }
         else if(pr_plan)
         {
-          agent.add('The following plans are available for the zipcode ' + pr_zipcode + '. \nChoose from the available plans.\nPART C\nPART D')
-        }
+          if(pr_zipcode==90024)
+          {
+            agent.add('Select a plan from the following available list of plans : \n'+plan_list1);
+          }
+          else if(pr_zipcode==90025)
+          {
+            agent.add('Select a plan from the following available list of plans : \n'+plan_list2);
+          }
       }
   }
 
  
-
   function gender_func(agent)
   {
     var person_gender = agent.parameters["custom-gender"];
@@ -207,7 +230,14 @@ app.post('/dialogflow', express.json(), (req, res) => {
     }
     else if(pr_plan)
     {
-      agent.add('The following plans are available for the zipcode ' + pr_zipcode + '. \nChoose from the available plans.\nPART C\nPART D')
+      if(pr_zipcode==90024)
+      {
+        agent.add('Select a plan from the following available list of plans : \n'+plan_list1);
+      }
+      else if(pr_zipcode==90025)
+      {
+        agent.add('Select a plan from the following available list of plans : \n'+plan_list2);
+      }
     }
   }
 
@@ -240,7 +270,14 @@ app.post('/dialogflow', express.json(), (req, res) => {
     }
     else if(pr_plan)
     {
-      agent.add('The following plans are available for the zipcode ' + pr_zipcode + '. \nChoose from the available plans.\nPART C\nPART D')
+      if(pr_zipcode==90024)
+      {
+        agent.add('Select a plan from the following available list of plans : \n'+plan_list1);
+      }
+      else if(pr_zipcode==90025)
+      {
+        agent.add('Select a plan from the following available list of plans : \n'+plan_list2);
+      }
     }
   }
 
@@ -275,7 +312,14 @@ app.post('/dialogflow', express.json(), (req, res) => {
       }
       else if(pr_plan)
       {
-        agent.add('The following plans are available for the zipcode ' + pr_zipcode + '. \nChoose from the available plans.\nPART C\nPART D')
+        if(pr_zipcode==90024)
+        {
+          agent.add('Select a plan from the following available list of plans : \n'+plan_list1);
+        }
+        else if(pr_zipcode==90025)
+        {
+          agent.add('Select a plan from the following available list of plans : \n'+plan_list2);
+        }
       }
     }
     else
@@ -303,7 +347,14 @@ app.post('/dialogflow', express.json(), (req, res) => {
       }
       else if(pr_plan=="")
       {
-        agent.add('The following plans are available for the zipcode ' + pr_zipcode + '. \nChoose from the available plans.\nPART C\nPART D')
+        if(pr_zipcode==90024)
+        {
+          agent.add('Select a plan from the following available list of plans : \n'+plan_list1);
+        }
+        else if(pr_zipcode==90025)
+        {
+          agent.add('Select a plan from the following available list of plans : \n'+plan_list2);
+        }
       }
     }
   }
@@ -338,7 +389,14 @@ app.post('/dialogflow', express.json(), (req, res) => {
       }
       else if(pr_plan=="")
       {
-        agent.add('The following plans are available for the zipcode ' + pr_zipcode + '. \nChoose from the available plans.\nPART C\nPART D')
+        if(pr_zipcode==90024)
+        {
+          agent.add('Select a plan from the following available list of plans : \n'+plan_list1);
+        }
+        else if(pr_zipcode==90025)
+        {
+          agent.add('Select a plan from the following available list of plans : \n'+plan_list2);
+        }
       }
   }
 

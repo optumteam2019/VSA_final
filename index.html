@@ -52,9 +52,9 @@ app.controller('myCtrl', function($scope, $http, $interval){
             }
 
 
-            if(document.getElementById('Plan').value=="" || (document.getElementById('Plan').value!=result.Plan && result.Plan!=""))
+            if(document.getElementById('plan').value=="" || (document.getElementById('plan').value!=result.Plan && result.Plan!=""))
             {
-              document.getElementById('Plan').value=result.Plan;
+              document.getElementById('plan').value=result.Plan;
             }
           
             if(result.Enroll == "Enroll" || result.Enroll=="Submit")
@@ -219,12 +219,11 @@ input[type=submit]:hover {
                 <label for="map">Medicare Advantage Plan</label>
               </div>
               <div class="col-75">
+
+                  <p> <input id="plan" type="text" name="plan" ng-model="plan" placeholder="Plan Name" >
+                  </p>
               
-                  <select name="Plan" id="Plan" >
-                      <option value="" disabled selected>Select Plan</option>
-                      <option value="Part C">Part C</option>
-                      <option value="Part D">Part D</option>
-                    </select>
+                  
                
                   </div>
             </div>
