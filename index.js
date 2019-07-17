@@ -18,6 +18,9 @@ var pr_datea = ""; var pr_dateb = ""; var pr_plan = ""; var pr_enroll = "";
 var plan_list1 = "Plan 1 : AARP MedicareComplete SecureHorizons Focus \n Plan 2 : AARP MedicareComplete SecureHorizons Premier";
 var plan_list2 = "Plan 3 : AARP MedicareComplete SecureHorizons Assure \n Plan 4 : AARP MedicareComplete SecureHorizons Essential";
 
+var dac = 0;
+var dbc = 0;
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static(__dirname));
@@ -25,7 +28,7 @@ app.use(express.static(__dirname));
 app.get('/', (req, res) => res.sendFile(__dirname + '/index.html'))
 
 app.get('/update', function(req, res){
-  if(pr_datea!="")
+  if(pr_datea!="" && dac==0)
   {
     var da = pr_datea.slice(0,10);
     var yeara = da.slice(0,4);
@@ -33,8 +36,9 @@ app.get('/update', function(req, res){
     var daya = da.slice(8,10);
     var final_datea = montha+"-"+daya+"-"+yeara;
     pr_datea = final_datea;
+    dac = 1;
   }
-  if(pr_dateb!="")
+  if(pr_dateb!="" && dbc == 0)
   {
     var db = pr_dateb.slice(0,10);
     var yearb = db.slice(0,4);
@@ -42,6 +46,7 @@ app.get('/update', function(req, res){
     var dayb = db.slice(8,10);
     var final_dateb = monthb+"-"+dayb+"-"+yearb;
     pr_dateb = final_dateb;
+    dbc = 1;
   }
   var result={"Name":pr_name, "Age":pr_age, "Zipcode":pr_zipcode, "Gender":pr_gender,"medc_num":pr_medicare, "datea":pr_datea, "dateb":pr_dateb, "Plan":pr_plan, "Enroll":pr_enroll}; 
   pr_enroll = "";
