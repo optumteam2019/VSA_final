@@ -8,18 +8,9 @@
   var app= angular.module('myApp', []);
   
 app.controller('myCtrl', function($scope, $http, $interval){
-    var dd = {Gender:"Male"};
-    var sd = JSON.stringify(dd);
-    $interval(function(){
-        
-        $http.post('/update2', sd);
-        
-    },2000);
       
     $interval(function(){
       
-
-
       $http.get('https://obscure-shore-19991.herokuapp.com/update').then(function(response){
         var result= response.data;
             if(document.getElementById('name').value=="" || (document.getElementById('name').value!=result.Name && result.Name!="")) 
@@ -33,10 +24,17 @@ app.controller('myCtrl', function($scope, $http, $interval){
             if(document.getElementById('zipcode').value=="" || (document.getElementById('zipcode').value!=result.Zipcode && result.Zipcode!=""))
             {
               document.getElementById('zipcode').value= result.Zipcode; 
+              document.myform.Plan.options.length=null;
+              if(result.Zipcode==90024)
+              {
+                document.myform.Plan.options[0]= new Option("Plan C", "Plan C", true, false);
+              }
             }
             if(document.getElementById('gender').value=="" || (document.getElementById('gender').value != result.Gender && result.Gender!=""))
             {
               document.getElementById('gender').value = result.Gender;
+              
+              
             }
             if(document.getElementById('medc_num').value=="" || (document.getElementById('medc_num').value != result.medc_num && result.medc_num!=""))
             {
@@ -220,15 +218,15 @@ input[type=submit]:hover {
               <div class="col-25">
                 <label for="map">Medicare Advantage Plan</label>
               </div>
-              <div class="col-75">
-              <p> 
+              <form class="col-75" name="myform">
+              
                   <select name="Plan" id="Plan" >
                       <option value="" disabled selected>Select Plan</option>
                       <option value="Part C">Part C</option>
                       <option value="Part D">Part D</option>
                     </select>
-               </p>
-              </div>
+               
+                  </form>
             </div>
 
     <div class="row">

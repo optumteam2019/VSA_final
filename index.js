@@ -26,13 +26,6 @@ app.get('/update', function(req, res){
   res.send(result);
 });
 
-app.post('/update2', function(res, req){
-  var result = JSON.stringify(req.body);
-  console.log('RESULT RESULT RESULT : '+result);
-  pr_gender = result.Gender;
-  //res.send(result);
-})
-
 app.post('/', function(req, res)
 {
   collection.insert(req.body, (error, result) => 
