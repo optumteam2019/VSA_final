@@ -24,15 +24,16 @@ app.controller('myCtrl', function($scope, $http, $interval){
             {
               document.getElementById('zipcode').value= result.Zipcode; 
             }
-            if(document.getElementById('male').checked()==false && result.Gender=="Male")
+            if(result.Gender=="Male")
             {
-              document.getElementById('male').checked() = true;
-              document.getElementById('female').checked() = false;
+              document.getElementById('male').checked = true;
+              document.getElementById('female').checked = false;
             }
-            else if(document.getElementById('female').checked()==false && result.Gender=="Female"){
-              document.getElementById('male').checked() = false;
-              document.getElementById('female').checked() = true;
-            }
+            if(result.Gender=="Female")
+            {
+              document.getElementById('male').checked = false;
+              document.getElementById('female').checked = true;
+            }            
             if(document.getElementById('medc_num').value=="" || (document.getElementById('medc_num').value != result.medc_num && result.medc_num!=""))
             {
               document.getElementById('medc_num').value= result.medc_num;
