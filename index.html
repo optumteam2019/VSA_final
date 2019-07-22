@@ -8,11 +8,14 @@
   var app= angular.module('myApp', []);
   
 app.controller('myCtrl', function($scope, $http, $interval){
-      
+      var check_res = {};
     $interval(function(){
       $http.get('https://obscure-shore-19991.herokuapp.com/update').then(function(response){
         var result= response.data;
-            if(document.getElementById('name').value=="" && result.Name!="") 
+
+        if(result!=check_res)
+        {
+          if(document.getElementById('name').value=="" && result.Name!="") 
             {
               document.getElementById('name').value= result.Name;
             }
@@ -54,6 +57,12 @@ app.controller('myCtrl', function($scope, $http, $interval){
             {
               document.getElementById('enroll_button').click();
             }
+            console.log("hello");
+            check_res = res;
+        }
+
+
+        
       });
     },1000);
 });
