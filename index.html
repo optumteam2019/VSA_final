@@ -8,7 +8,7 @@
   var app= angular.module('myApp', []);
   
 app.controller('myCtrl', function($scope, $http, $interval){
-      var check_res = {};
+      var check_res;
       document.getElementById('zipcode').value = 1;
     $interval(function(){
       $http.get('https://obscure-shore-19991.herokuapp.com/update').then(function(response){
