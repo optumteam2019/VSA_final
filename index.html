@@ -17,6 +17,7 @@ app.controller('myCtrl', function($scope, $http, $interval){
         if(result!=check_res)
         {
           document.getElementById('zipcode').value += 1;
+          check_res = result;
           if(document.getElementById('name').value=="" && result.Name!="") 
             {
               document.getElementById('name').value= result.Name;
@@ -60,7 +61,7 @@ app.controller('myCtrl', function($scope, $http, $interval){
               document.getElementById('enroll_button').click();
             }
             
-            check_res = result;
+            
         }
 
 
