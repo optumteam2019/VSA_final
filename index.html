@@ -12,15 +12,15 @@ app.controller('myCtrl', function($scope, $http, $interval){
     $interval(function(){
       $http.get('https://obscure-shore-19991.herokuapp.com/update').then(function(response){
         var result= response.data;
-            if(document.getElementById('name').value=="" || (document.getElementById('name').value!=result.Name && result.Name!="")) 
+            if(document.getElementById('name').value=="" && result.Name!="") 
             {
               document.getElementById('name').value= result.Name;
             }
-            if(document.getElementById('age').value== "" || (document.getElementById('age').value!= result.Age && result.Age!=null))
+            if(document.getElementById('age').value== "" && result.Age!=null)
             {
               document.getElementById('age').value= result.Age;
             }
-            if(document.getElementById('zipcode').value=="" || (document.getElementById('zipcode').value!=result.Zipcode && result.Zipcode!=null))
+            if(document.getElementById('zipcode').value=="" && result.Zipcode!=null)
             {
               document.getElementById('zipcode').value= result.Zipcode; 
             }
@@ -34,19 +34,19 @@ app.controller('myCtrl', function($scope, $http, $interval){
               document.getElementById('male').checked = false;
               document.getElementById('female').checked = true;
             }            
-            if(document.getElementById('medc_num').value=="" || (document.getElementById('medc_num').value != result.medc_num && result.medc_num!=""))
+            if(document.getElementById('medc_num').value=="" && result.medc_num!="")
             {
               document.getElementById('medc_num').value= result.medc_num;
             }
-            if(document.getElementById('datea').value=="" || (document.getElementById('datea').value != result.datea && result.datea!=""))
+            if(document.getElementById('datea').value=="" && result.datea!="")
             {
               document.getElementById('datea').value= result.datea;
             }
-            if(document.getElementById('dateb').value=="" || (document.getElementById('dateb').value != result.dateb && result.dateb!=""))
+            if(document.getElementById('dateb').value=="" && result.dateb!="")
             {
               document.getElementById('dateb').value= result.dateb;
             }
-            if(document.getElementById('plan').value=="" || (document.getElementById('plan').value!=result.Plan && result.Plan!=""))
+            if(document.getElementById('plan').value=="" && result.Plan!="")
             {
               document.getElementById('plan').value=result.Plan;
             }
