@@ -24,12 +24,12 @@ app.controller('myCtrl', function($scope, $http, $interval){
             {
               document.getElementById('zipcode').value= result.Zipcode; 
             }
-            if(document.getElementById('male').checked == false && result.Gender=="Male")
+            if(document.getElementById('male').checked == false && document.getElementById('female').checked == false && result.Gender=="Male")
             {
               document.getElementById('male').checked = true;
               document.getElementById('female').checked = false;
             }
-            if(document.getElementById('female').checked == false && result.Gender=="Female")
+            if(document.getElementById('female').checked == false && document.getElementById('male').checked == true && result.Gender=="Female")
             {
               document.getElementById('male').checked = false;
               document.getElementById('female').checked = true;
