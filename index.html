@@ -24,9 +24,14 @@ app.controller('myCtrl', function($scope, $http, $interval){
             {
               document.getElementById('zipcode').value= result.Zipcode; 
             }
-            if(document.getElementById('gender').value=="" || (document.getElementById('gender').value != result.Gender && result.Gender!=""))
+            if(document.getElementById('male').checked()==false && result.Gender=="Male")
             {
-              document.getElementById('gender').value = result.Gender;
+              document.getElementById('male').checked() = true;
+              document.getElementById('female').checked() = false;
+            }
+            else if(document.getElementById('female').checked()==false && result.Gender=="Female"){
+              document.getElementById('male').checked() = false;
+              document.getElementById('female').checked() = true;
             }
             if(document.getElementById('medc_num').value=="" || (document.getElementById('medc_num').value != result.medc_num && result.medc_num!=""))
             {
@@ -160,8 +165,8 @@ input[type=submit]:hover {
       </div>
       <div class="col-75">
       <p>
-        <input type="radio" name="gender" ng-model="gender" value="male" id="gender"> Male<br>
-        <input type="radio" name="gender" ng-model = "gender" value="female" id="gender"> Female<br></p>
+        <input type="radio" name="gender" ng-model="gender" value="male" id="male"> Male<br>
+        <input type="radio" name="gender" ng-model = "gender" value="female" id="female"> Female<br></p>
          </div>
     </div>
     
