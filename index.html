@@ -19,17 +19,17 @@ app.controller('myCtrl', function($scope, $http, $interval){
           document.getElementById('name').value= result.Name;
           check_res.Name = result.Name;
         }
-        if (check_res.Age != result.Age)
+        else if (check_res.Age != result.Age)
         {
           document.getElementById('age').value= result.Age;
           check_res.Age = result.Age;
         }
-        if (check_res.Zipcode != result.Zipcode)
+        else if (check_res.Zipcode != result.Zipcode)
         {
           document.getElementById('zipcode').value= result.Zipcode;
           check_Res.Zipcode = result.Zipcode;
         }
-        if (check_res.Gender != result.Gender)
+        else if (check_res.Gender != result.Gender)
         {
           if(result.Gender=="Male")
           {
@@ -43,7 +43,7 @@ app.controller('myCtrl', function($scope, $http, $interval){
           }
           check_res.Gender = result.Gender;
         }
-        if (check_res.medc_num != result.medc_num)
+        else if (check_res.medc_num != result.medc_num)
         {
           document.getElementById('medc_num').value= result.medc_num;
           check_res.medc_num = result.medc_num;
@@ -60,12 +60,12 @@ app.controller('myCtrl', function($scope, $http, $interval){
           check_res.dateb = result.dateb;
         }
         */
-        if (check_res.Plan != result.Plan)
+        else if (check_res.Plan != result.Plan)
         {
           document.getElementById('plan').value = result.Plan;
           check_res.Plan = result.Plan;
         }
-        if (check_res.Enroll != result.Enroll)
+        else if (check_res.Enroll != result.Enroll)
         {
           document.getElementById('enroll_button').click();
           check_res.Enroll = result.Enroll;
