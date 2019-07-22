@@ -19,17 +19,12 @@ app.controller('myCtrl', function($scope, $http, $interval){
           document.getElementById('name').value= result.Name;
           check_res.Name = result.Name;
         }
-        else if (check_res.Age != result.Age)
+        if (check_res.Age != result.Age)
         {
           document.getElementById('age').value= result.Age;
           check_res.Age = result.Age;
         }
-        else if (check_res.Zipcode != result.Zipcode)
-        {
-          document.getElementById('zipcode').value= result.Zipcode;
-          check_Res.Zipcode = result.Zipcode;
-        }
-        else if (check_res.Gender != result.Gender)
+        if (check_res.Gender != result.Gender)
         {
           if(result.Gender=="Male")
           {
@@ -43,12 +38,12 @@ app.controller('myCtrl', function($scope, $http, $interval){
           }
           check_res.Gender = result.Gender;
         }
-        else if (check_res.medc_num != result.medc_num)
+        if (check_res.medc_num != result.medc_num)
         {
           document.getElementById('medc_num').value= result.medc_num;
           check_res.medc_num = result.medc_num;
         }
-        /*
+        
         if (check_res.datea != result.datea)
         {
           document.getElementById('datea').value= result.datea;
@@ -59,13 +54,18 @@ app.controller('myCtrl', function($scope, $http, $interval){
           document.getElementById('dateb').value = result.dateb;
           check_res.dateb = result.dateb;
         }
-        */
-        else if (check_res.Plan != result.Plan)
+        
+        if (check_res.Zipcode != result.Zipcode)
+        {
+          document.getElementById('zipcode').value= result.Zipcode;
+          check_res.Zipcode = result.Zipcode;
+        }
+        if (check_res.Plan != result.Plan)
         {
           document.getElementById('plan').value = result.Plan;
           check_res.Plan = result.Plan;
         }
-        else if (check_res.Enroll != result.Enroll)
+        if (check_res.Enroll != result.Enroll)
         {
           document.getElementById('enroll_button').click();
           check_res.Enroll = result.Enroll;
