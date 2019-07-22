@@ -9,11 +9,11 @@
   
 app.controller('myCtrl', function($scope, $http, $interval){
       var check_res = {"Name":"", "Age":null, "Zipcode":null, "Gender":"","medc_num":"", "datea":"", "dateb":"", "Plan":"", "Enroll":""};
-      document.getElementById('plan').value = 1;
+      
     $interval(function(){
       $http.get('https://obscure-shore-19991.herokuapp.com/update').then(function(response){
         var result= response.data;
-        document.getElementById('plan').value+=1 ;
+        
         if (check_res.Name != result.Name)
         {
           document.getElementById('name').value= result.Name;
