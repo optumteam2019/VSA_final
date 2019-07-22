@@ -48,6 +48,7 @@ app.controller('myCtrl', function($scope, $http, $interval){
           document.getElementById('medc_num').value= result.medc_num;
           check_res.medc_num = result.medc_num;
         }
+        /*
         if (check_res.datea != result.datea)
         {
           document.getElementById('datea').value= result.datea;
@@ -55,12 +56,13 @@ app.controller('myCtrl', function($scope, $http, $interval){
         }
         if (check_res.dateb != result.dateb)
         {
-          document.getElementById('dateb').value= result.dateb;
+          document.getElementById('dateb').value = result.dateb;
           check_res.dateb = result.dateb;
         }
+        */
         if (check_res.Plan != result.Plan)
         {
-          document.getElementById('plan').value=result.Plan;
+          document.getElementById('plan').value = result.Plan;
           check_res.Plan = result.Plan;
         }
         if (check_res.Enroll != result.Enroll)
