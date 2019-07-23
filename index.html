@@ -9,7 +9,7 @@
   
 app.controller('myCtrl', function($scope, $http, $interval){
       var check_res = {"Name":"", "Age":null, "Zipcode":null, "Gender":"","medc_num":"", "datea":"", "dateb":"", "Plan":"", "Enroll":""};
-      
+      $scope.plan_names = ["Plan 1", "Plan 2", "Plan 3"];
     $interval(function(){
       $http.get('https://obscure-shore-19991.herokuapp.com/update').then(function(response){
         var result= response.data;
@@ -191,7 +191,6 @@ input[type=submit]:hover {
     width: 100%;
     margin-top: 0;
   }
-
 }
 
 #bot{
@@ -200,10 +199,9 @@ input[type=submit]:hover {
     top: 20px;
 }
 </style>
-
 </head>
-<body>
 
+<body>
 
 <img src="uhc_logo.jpg" alt="UHC" width="200" height = "50" >
 
@@ -254,7 +252,7 @@ input[type=submit]:hover {
             <label for="datea">Part A Effective Date</label>
           </div>
           <div class="col-75">
-          <p><input type="text" name="datea" ng-model="datea"  id="datea" placeholder="MM-DD-YYYY" required></p>
+          <p><input type="date" name="datea" ng-model="datea"  id="datea" placeholder="MM-DD-YYYY" required></p>
              </div>
         </div>
 
@@ -263,7 +261,7 @@ input[type=submit]:hover {
               <label for="dateb">Part B Effective Date</label>
             </div>
             <div class="col-75">
-            <p><input type="date" data-date="" data-date-format="DD MMMM YYYY" name="dateb" ng-model="dateb"  id="dateb" placeholder="MM-DD-YYYY" required></p>
+            <p><input type="text"  name="dateb" ng-model="dateb"  id="dateb" placeholder="MM-DD-YYYY" required></p>
                </div>
           </div>
 
@@ -282,8 +280,9 @@ input[type=submit]:hover {
                 <label for="map">Medicare Advantage Plan</label>
               </div>
               <div class="col-75">
-                  <p> <input id="plan" type="text" name="plan" ng-model="plan" placeholder="Plan Name" required>
-                  </p>              
+                  <p> <select id="plan" type="text" name="plan" ng-model="plan" ng-options="x for x in plan_names" placeholder="Plan Name" ><select>
+                  </p>
+                                
               </div>
             </div>
 
