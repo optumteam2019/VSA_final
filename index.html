@@ -17,10 +17,12 @@ app.controller('myCtrl', function($scope, $http, $interval){
         if (document.getElementById('zipcode').value==90024)
         {
           $scope.plan_names = ["AARP MedicareComplete SecureHorizons Focus", "AARP MedicareComplete SecureHorizons Premier"];
+          $scope.plan_name2 = [];
         }
         if (document.getElementById('zipcode').value==90025)
         {
           $scope.plan_names2 = ["AARP MedicareComplete SecureHorizons Assure", "AARP MedicareComplete SecureHorizons Essential"];
+          $scope.plan_names = [];
         }
         if (check_res.Name != result.Name)
         {
