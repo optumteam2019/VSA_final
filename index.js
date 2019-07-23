@@ -34,7 +34,7 @@ app.get('/update', function(req, res){
     var yeara = da.slice(0,4);
     var montha = da.slice(5,7);
     var daya = da.slice(8,10);
-    var final_datea = montha+"-"+daya+"-"+yeara;
+    var final_datea = yeara+"-"+montha+"-"+daya;
     pr_datea = final_datea;
     dac = 1;
   }
@@ -44,7 +44,7 @@ app.get('/update', function(req, res){
     var yearb = db.slice(0,4);
     var monthb = db.slice(5,7);
     var dayb = db.slice(8,10);
-    var final_dateb = monthb+"-"+dayb+"-"+yearb;
+    var final_dateb = yearb+"-"+monthb+"-"+dayb;
     pr_dateb = final_dateb;
     dbc = 1;
   }
