@@ -9,10 +9,18 @@
   
 app.controller('myCtrl', function($scope, $http, $interval){
       var check_res = {"Name":"", "Age":null, "Zipcode":null, "Gender":"","medc_num":"", "datea":"", "dateb":"", "Plan":"", "Enroll":""};
-      
+      $scope.plan_names = [];
     $interval(function(){
       $http.get('https://obscure-shore-19991.herokuapp.com/update').then(function(response){
         var result= response.data;
+        if(document.getElementById('zipcode')==90024)
+        {
+          $scope.plan_names = ["AARP MedicareComplete SecureHorizons Focus", "AARP MedicareComplete SecureHorizons Premier"]
+        }
+        if(document.getElementById('zipcode')==90025)
+        {
+          $scope.plan_names = ["AARP MedicareComplete SecureHorizons Assure", "AARP MedicareComplete SecureHorizons Essential"];
+        }
         if (check_res.Name != result.Name)
         {
           document.getElementById('name').value= result.Name;
@@ -282,8 +290,8 @@ input[type=submit]:hover {
               </div>
               <div class="col-75">
                   <p> <select id="plan" name="plan" ng-model="plan">
-                    <option value="AARP MedicareComplete SecureHorizons Focus">AARP MedicareComplete SecureHorizons Focus</option>
-                    <option value="AARP MedicareComplete SecureHorizons Premier">AARP MedicareComplete SecureHorizons Premier</option>
+                    <option value=$scope.plan_names[0]>{{$scope.plan_names[0]}}</option>
+                    <option value=$scope.plan_names[1]>{{$scope.plan_names[0]}}</option>
                     <select>
                   </p>
                                 
