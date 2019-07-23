@@ -77,6 +77,7 @@ app.controller('myCtrl', function($scope, $http, $interval){
           document.getElementById('enroll_button').click();
           check_res.Enroll = result.Enroll;
         }
+
         /*
         if(result!=check_res)
         {
@@ -123,9 +124,7 @@ app.controller('myCtrl', function($scope, $http, $interval){
             if(result.Enroll == "Enroll" || result.Enroll=="Submit")
             {
               document.getElementById('enroll_button').click();
-            }
-            
-            
+            }  
         }
         */
        
@@ -287,7 +286,8 @@ input[type=submit]:hover {
                 <label for="map">Medicare Advantage Plan</label>
               </div>
               <div class="col-75">
-                  <p> <select id="plan" name="plan" ng-model="plan" ng-options="x for x in plan_names">
+                  <p> <select id="plan" name="plan" ng-model="plan">
+                    <option value="Plan 1">{{plan_names[0]}}</option>
                   </select>
                   </p>
                                 
