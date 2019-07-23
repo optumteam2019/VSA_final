@@ -9,13 +9,13 @@
   
 app.controller('myCtrl', function($scope, $http, $interval){
       var check_res = {"Name":"", "Age":null, "Zipcode":null, "Gender":"","medc_num":"", "datea":"", "dateb":"", "Plan":"", "Enroll":""};
-      $scope.plan_names = [];
+      $scope.plan_names = ["",""];
     $interval(function(){
       $http.get('https://obscure-shore-19991.herokuapp.com/update').then(function(response){
         var result= response.data;
         if(document.getElementById('zipcode')==90024)
         {
-          $scope.plan_names = ["AARP MedicareComplete SecureHorizons Focus", "AARP MedicareComplete SecureHorizons Premier"]
+          $scope.plan_names = ["AARP MedicareComplete SecureHorizons Focus", "AARP MedicareComplete SecureHorizons Premier"];
         }
         if(document.getElementById('zipcode')==90025)
         {
