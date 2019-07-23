@@ -80,56 +80,6 @@ app.controller('myCtrl', function($scope, $http, $interval){
           document.getElementById('enroll_button').click();
           check_res.Enroll = result.Enroll;
         }
-
-        /*
-        if(result!=check_res)
-        {
-          document.getElementById('zipcode').value += 1;
-          check_res = result;
-          if(document.getElementById('name').value=="" && result.Name!="") 
-            {
-              document.getElementById('name').value= result.Name;
-            }
-            if(document.getElementById('age').value== "" && result.Age!=null)
-            {
-              document.getElementById('age').value= result.Age;
-            }
-            if(document.getElementById('zipcode').value=="" && result.Zipcode!=null)
-            {
-              document.getElementById('zipcode').value= result.Zipcode; 
-            }
-            if(document.getElementById('male').checked == false && document.getElementById('female').checked == false && result.Gender=="Male")
-            {
-              document.getElementById('male').checked = true;
-              document.getElementById('female').checked = false;
-            }
-            if(document.getElementById('female').checked == false && document.getElementById('male').checked == true && result.Gender=="Female")
-            {
-              document.getElementById('male').checked = false;
-              document.getElementById('female').checked = true;
-            }            
-            if(document.getElementById('medc_num').value=="" && result.medc_num!="")
-            {
-              document.getElementById('medc_num').value= result.medc_num;
-            }
-            if(document.getElementById('datea').value=="" && result.datea!="")
-            {
-              document.getElementById('datea').value= result.datea;
-            }
-            if(document.getElementById('dateb').value=="" && result.dateb!="")
-            {
-              document.getElementById('dateb').value= result.dateb;
-            }
-            if(document.getElementById('plan').value=="" && result.Plan!="")
-            {
-              document.getElementById('plan').value=result.Plan;
-            }
-            if(result.Enroll == "Enroll" || result.Enroll=="Submit")
-            {
-              document.getElementById('enroll_button').click();
-            }  
-        }
-        */
        
       });
     },1000);
