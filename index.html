@@ -9,7 +9,7 @@
   
 app.controller('myCtrl', function($scope, $http, $interval){
       var check_res = {"Name":"", "Age":null, "Zipcode":null, "Gender":"","medc_num":"", "datea":"", "dateb":"", "Plan":"", "Enroll":""};
-      $scope.plans = ["AARP MedicareComplete SecureHorizons Focus", "AARP MedicareComplete SecureHorizons Premier"];
+      
     $interval(function(){
       $http.get('https://obscure-shore-19991.herokuapp.com/update').then(function(response){
         var result= response.data;
@@ -288,7 +288,7 @@ input[type=submit]:hover {
               </div>
               <div class="col-75">
                   <select ng-model="plan" ng-options="x for x in plans">
-                  <select>
+                  </select>
                   
                                 
               </div>
