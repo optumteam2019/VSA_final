@@ -4,88 +4,88 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.10.1.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
 <script>
+
   var app= angular.module('myApp', []);
-  
-app.controller('myCtrl', function($scope, $http, $interval){
+    
+  app.controller('myCtrl', function($scope, $http, $interval){
+
       var check_res = {"Name":"", "Age":null, "Zipcode":null, "Gender":"","medc_num":"", "datea":"", "dateb":"", "Plan":"", "Enroll":""};
       $scope.plan_names = [];
       $scope.plan_name2 = [];
-    $interval(function(){
-      $http.get('https://obscure-shore-19991.herokuapp.com/update').then(function(response){
-        var result= response.data;
-        if (document.getElementById('zipcode').value==90024)
-        {
-          $scope.plan_names = ["AARP MedicareComplete SecureHorizons Focus", "AARP MedicareComplete SecureHorizons Premier"];
-          $scope.plan_name2 = [];
-        }
-        if (document.getElementById('zipcode').value==90025)
-        {
-          $scope.plan_names2 = ["AARP MedicareComplete SecureHorizons Assure", "AARP MedicareComplete SecureHorizons Essential"];
-          $scope.plan_names = [];
-        }
-        if (check_res.Name != result.Name)
-        {
-          document.getElementById('name').value= result.Name;
-          check_res.Name = result.Name;
-        }
-        if (check_res.Age != result.Age)
-        {
-          document.getElementById('age').value= result.Age;
-          check_res.Age = result.Age;
-        }
-        if (check_res.Gender != result.Gender)
-        {
-          if(result.Gender=="Male")
-          {
-            document.getElementById('male').checked = true;
-            document.getElementById('female').checked = false;
-          }
-          else if(result.Gender=="Female")
-          {
-            document.getElementById('male').checked = false;
-            document.getElementById('female').checked = true;
-          }
-          check_res.Gender = result.Gender;
-        }
-        if (check_res.medc_num != result.medc_num)
-        {
-          document.getElementById('medc_num').value= result.medc_num;
-          check_res.medc_num = result.medc_num;
-        }
-        
-        if (check_res.datea != result.datea)
-        {
-          document.getElementById('datea').value= result.datea;
-          check_res.datea = result.datea;
-        }
-        if (check_res.dateb != result.dateb)
-        {
-          document.getElementById('dateb').value = result.dateb;
-          check_res.dateb = result.dateb;
-        }
-        
-        if (check_res.Zipcode != result.Zipcode)
-        {
-          document.getElementById('zipcode').value= result.Zipcode;
-          check_res.Zipcode = result.Zipcode;
-        }
-        if (check_res.Plan != result.Plan)
-        {
-          document.getElementById('plan').value = result.Plan;
-          check_res.Plan = result.Plan;
-        }
-        if (check_res.Enroll != result.Enroll)
-        {
-          document.getElementById('enroll_button').click();
-          check_res.Enroll = result.Enroll;
-        }
-       
-      });
-    },1000);
-});
-</script>
 
+      $interval(function(){
+        $http.get('https://obscure-shore-19991.herokuapp.com/update').then(function(response){
+          var result= response.data;
+          if (document.getElementById('zipcode').value==90024)
+          {
+            $scope.plan_names = ["AARP MedicareComplete SecureHorizons Focus", "AARP MedicareComplete SecureHorizons Premier"];
+            $scope.plan_name2 = [];
+          }
+          if (document.getElementById('zipcode').value==90025)
+          {
+            $scope.plan_names2 = ["AARP MedicareComplete SecureHorizons Assure", "AARP MedicareComplete SecureHorizons Essential"];
+            $scope.plan_names = [];
+          }
+          if (check_res.Name != result.Name)
+          {
+            document.getElementById('name').value= result.Name;
+            check_res.Name = result.Name;
+          }
+          if (check_res.Age != result.Age)
+          {
+            document.getElementById('age').value= result.Age;
+            check_res.Age = result.Age;
+          }
+          if (check_res.Gender != result.Gender)
+          {
+            if(result.Gender=="Male")
+            {
+              document.getElementById('male').checked = true;
+              document.getElementById('female').checked = false;
+            }
+            else if(result.Gender=="Female")
+            {
+              document.getElementById('male').checked = false;
+              document.getElementById('female').checked = true;
+            }
+            check_res.Gender = result.Gender;
+          }
+          if (check_res.medc_num != result.medc_num)
+          {
+            document.getElementById('medc_num').value= result.medc_num;
+            check_res.medc_num = result.medc_num;
+          }   
+          if (check_res.datea != result.datea)
+          {
+            document.getElementById('datea').value= result.datea;
+            check_res.datea = result.datea;
+          }
+          if (check_res.dateb != result.dateb)
+          {
+            document.getElementById('dateb').value = result.dateb;
+            check_res.dateb = result.dateb;
+          }
+          if (check_res.Zipcode != result.Zipcode)
+          {
+            document.getElementById('zipcode').value= result.Zipcode;
+            check_res.Zipcode = result.Zipcode;
+          }
+          if (check_res.Plan != result.Plan)
+          {
+            document.getElementById('plan').value = result.Plan;
+            check_res.Plan = result.Plan;
+          }
+          if (check_res.Enroll != result.Enroll)
+          {
+            document.getElementById('enroll_button').click();
+            check_res.Enroll = result.Enroll;
+          }
+        });
+      },1000);
+  });
+</script>
 
 <style>
 * {
@@ -112,7 +112,6 @@ input[type=submit] {
   border: none;
   border-radius: 4px;
   cursor: pointer;
-
 }
 
 input[type=submit]:hover {
@@ -185,6 +184,7 @@ input[type=submit]:hover {
       <p><input type="number" name="age" ng-model="age" placeholder="Age" id="age" required></p>
       </div>
     </div>
+
     <div class="row">
       <div class="col-25">
         <label for="gender">Gender</label>
@@ -196,7 +196,6 @@ input[type=submit]:hover {
          </div>
     </div>
     
-
     <div class="row">
         <div class="col-25">
           <label for="medc_num">Medicare Number</label>
@@ -213,7 +212,7 @@ input[type=submit]:hover {
           <div class="col-75">
           <p><input type="date" name="datea" ng-model="datea"  id="datea" placeholder="MM-DD-YYYY" required></p>
              </div>
-        </div>
+      </div>
 
         <div class="row">
             <div class="col-25">
