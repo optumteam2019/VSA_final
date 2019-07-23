@@ -287,9 +287,8 @@ input[type=submit]:hover {
                 <label for="map">Medicare Advantage Plan</label>
               </div>
               <div class="col-75">
-                  <p> <select id="plan" name="plan" ng-model="plan">
-                    <option value="AARP MedicareComplete SecureHorizons Focus">{{plan_names[0]}}</option>
-                    <option value="AARP MedicareComplete SecureHorizons Premier">{{plan_names[1]}}</option>
+                  <p> <select id="plan" name="plan" ng-options="x for x in plan_names" ng-model="plan">
+
                     <select>
                   </p>
                                 
