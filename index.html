@@ -9,7 +9,7 @@
   
 app.controller('myCtrl', function($scope, $http, $interval){
       var check_res = {"Name":"", "Age":null, "Zipcode":null, "Gender":"","medc_num":"", "datea":"", "dateb":"", "Plan":"", "Enroll":""};
-      $scope.plan_names = ["",""];
+     $scope.plan_names;
     $interval(function(){
       $http.get('https://obscure-shore-19991.herokuapp.com/update').then(function(response){
         var result= response.data;
@@ -287,7 +287,7 @@ input[type=submit]:hover {
                 <label for="map">Medicare Advantage Plan</label>
               </div>
               <div class="col-75">
-                  <p> <select id="plan" name="plan" ng-options="x for x in plan_names" ng-model="plan">
+                  <p> <select ng-options="x for x in plan_names" ng-model="plan">
 
                     <select>
                   </p>
