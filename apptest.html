@@ -43,7 +43,7 @@
     /**
      * You must include the dependency on 'ngMaterial' 
      */
-    var app1 = angular.module('myform', ['ngMaterial', 'ngMessages']).config(function ($mdThemingProvider) {
+    var app = angular.module('myApp', ['ngMaterial', 'ngMessages']).config(function ($mdThemingProvider) {
       $mdThemingProvider.theme('default')
         .primaryPalette('amber', {
           'default': '400', // by default use shade 400 from the pink palette for primary intentions
@@ -59,7 +59,7 @@
         });
     });
 
-    var app= angular.module('myApp', []);
+ 
 
     app.controller('myCtrl', function ($scope, $http, $interval) {
       var check_res = { "Name": "", "Age": null, "Zipcode": null, "Gender": "", "medc_num": "", "datea": "", "dateb": "", "Plan": "", "Enroll": "" };
@@ -130,14 +130,14 @@
 
 </head>
 
-<body ng-app="myform" ng-cloak>
+<body ng-app="myApp" ng-controller="myCtrl" ng-cloak>
 
 
   <md-toolbar layout="row" layout-align="start center">
     <img src="uhc_logo.jpg" alt="UHC" width="200" height="50" class="logo">
   </md-toolbar>
 
-  <div ng-app="myApp" class="container" ng-controller="myCtrl" layout="row" layout-align="center center">
+  <div  class="container"  layout="row" layout-align="center center">
 
     <md-whiteframe class="md-whiteframe-5dp"  layout layout-align="center center" class="content">
       <div class="content-item">
