@@ -35,7 +35,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-aria.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-messages.min.js"></script>
 
-  <!-- Angular Material Library -->
+  
   <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.js"></script>
 
   <!-- Your application bootstrap  -->
@@ -43,7 +43,7 @@
     /**
      * You must include the dependency on 'ngMaterial' 
      */
-    var app = angular.module('myApp', ['ngMaterial', 'ngMessages']).config(function ($mdThemingProvider) {
+    var app1 = angular.module('myform', ['ngMaterial', 'ngMessages']).config(function ($mdThemingProvider) {
       $mdThemingProvider.theme('default')
         .primaryPalette('amber', {
           'default': '400', // by default use shade 400 from the pink palette for primary intentions
@@ -58,6 +58,8 @@
           'default': '300'
         });
     });
+
+    var app= angular.module('myApp', []);
 
     app.controller('myCtrl', function ($scope, $http, $interval) {
       var check_res = { "Name": "", "Age": null, "Zipcode": null, "Gender": "", "medc_num": "", "datea": "", "dateb": "", "Plan": "", "Enroll": "" };
@@ -128,14 +130,14 @@
 
 </head>
 
-<body ng-app="myApp" ng-cloak>
+<body ng-app="myform" ng-cloak>
 
 
   <md-toolbar layout="row" layout-align="start center">
     <img src="uhc_logo.jpg" alt="UHC" width="200" height="50" class="logo">
   </md-toolbar>
 
-  <div class="container" ng-controller="myCtrl" layout="row" layout-align="center center">
+  <div ng-app="myApp" class="container" ng-controller="myCtrl" layout="row" layout-align="center center">
 
     <md-whiteframe class="md-whiteframe-5dp"  layout layout-align="center center" class="content">
       <div class="content-item">
