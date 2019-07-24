@@ -1,0 +1,273 @@
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.css">
+
+  <style>
+      .logo {
+    margin:1rem;
+}
+
+.container {
+    width:100%;
+    margin: 1.5rem;
+}
+
+.content {
+    width: 100%;
+    height:100%;
+}
+
+.content-item {
+    margin: 1rem;
+}
+
+.form {
+    min-width: 35rem;
+}
+
+  </style>
+</head>
+
+<body ng-app="myApp" ng-cloak>
+
+
+  <md-toolbar layout="row" layout-align="start center">
+    <img src="uhc_logo.jpg" alt="UHC" width="200" height="50" class="logo">
+  </md-toolbar>
+
+  <div class="container" ng-controller="myCtrl" layout="row" layout-align="center center">
+
+    <md-whiteframe class="md-whiteframe-5dp"  layout layout-align="center center" class="content">
+      <div class="content-item">
+        <form id="submitForm" action="/" method="post" class="form" layout="column" layout-align="center none">
+
+          <!--<md-input-container>
+            <label>Name</label>
+            <input ng-model="name">
+          </md-input-container> -->
+          <md-input-container>
+          
+            
+              <label>Name</label>
+            
+            
+              <input name="name" ng-model="name"  id="name" required>
+            
+          
+        </md-input-container>
+        
+        <md-input-container>
+          <div class="row">
+            <div class="col-25">
+              <label for="lname">Age</label>
+            </div>
+            <div class="col-75">
+              <p><input type="text" name="age" ng-model="age" id="age" required></p>
+            </div>
+          </div>
+        </md-input-container>
+
+         
+          <div class="row">
+            <div class="col-25">
+              <label for="gender">Gender</label>
+            </div>
+            <md-divider></md-divider>
+            <div class="col-75">
+              
+              <md-radio-group>
+                <md-radio-button  name="gender" ng-model="gender" value="male" id="male"> Male</md-radio-button>
+                <md-radio-button name="gender" ng-model="gender" value="female" id="female"> Female</md-radio-button>
+
+              </md-radio-group>
+            </div>
+          </div>
+
+        
+
+          <md-input-container>
+          <div class="row">
+            <div class="col-25">
+              <label for="medc_num">Medicare Number</label>
+            </div>
+            <div class="col-75">
+              <p><input type="text" name="medc_num" ng-model="medc_num"  id="medc_num" required>
+              </p>
+            </div>
+          </div>
+
+          </md-input-container>
+
+          <div class="row">
+            <div class="col-25">
+              <label for="datea">Part A Effective Date</label>
+            </div>
+            <div class="col-75">
+              <p><md-datepicker  name="datea" ng-model="datea" id="datea" required></md-datepicker>
+              </p>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-25">
+              <label for="dateb">Part B Effective Date</label>
+            </div>
+            <div class="col-75">
+              <p><md-datepicker name="dateb" ng-model="dateb" id="dateb" placeholder="MM-DD-YYYY" required></md-datepicker>
+              </p>
+            </div>
+          </div>
+
+          <md-input-container>
+          <div class="row">
+            <div class="col-25">
+              <label for="zipcode">Zipcode</label>
+            </div>
+            <div class="col-75">
+              <p> <input id="zipcode" type="text" name="zipcode" ng-model="zipcode_number"
+                  required>
+              </p>
+            </div>
+          </div>
+          </md-input-container>
+
+          <md-input-container>
+          <div class="row">
+            <div class="col-25">
+              <label for="map">Medicare Advantage Plan</label>
+            </div>
+            <div class="col-75">
+              <p> <md-select id="plan" name="plan" ng-model="plan">
+                  <md-option value="AARP MedicareComplete SecureHorizons Focus">{{plan_names[0]}}</md-option>
+                  <md-option value="AARP MedicareComplete SecureHorizons Premier">{{plan_names[1]}}</md-option>
+                  <md-option value="AARP MedicareComplete SecureHorizons Assure">{{plan_names2[0]}}</md-option>
+                  <md-option value="AARP MedicareComplete SecureHorizons Essential">{{plan_names2[1]}}</md-option>>
+              </md-select>
+              </p>
+
+            </div>
+          </div>
+          </md-input-container>
+
+          <div class="row">
+            <md-button class="md-raised md-warn" id="enroll_button">SUBMIT</md-button>
+          </div>
+        </form>
+      </div>
+
+      
+    </md-whiteframe>
+
+    <div id="bot" action="/dialogflow" method="post" class="content-item">
+      <iframe align="right" allow="microphone;" width="350" height="500"
+        src="https://console.dialogflow.com/api-client/demo/embedded/a06d82aa-1402-4215-91ed-048d7b43e79d">
+      </iframe>
+    </div>
+
+
+  </div>
+
+
+
+  <!-- Angular Material requires Angular.js Libraries -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-animate.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-aria.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-messages.min.js"></script>
+
+  <!-- Angular Material Library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.js"></script>
+
+  <!-- Your application bootstrap  -->
+  <script type="text/javascript">
+    /**
+     * You must include the dependency on 'ngMaterial' 
+     */
+    var app = angular.module('myApp', ['ngMaterial', 'ngMessages']).config(function ($mdThemingProvider) {
+      $mdThemingProvider.theme('default')
+        .primaryPalette('amber', {
+          'default': '400', // by default use shade 400 from the pink palette for primary intentions
+          'hue-1': '200', // use shade 100 for the <code>md-hue-1</code> class
+          'hue-2': '600', // use shade 600 for the <code>md-hue-2</code> class
+          'hue-3': 'A100'
+        })
+        .accentPalette('green', {
+          'default': '200'
+        })
+        .warnPalette('red', {
+          'default': '300'
+        });
+    });
+
+    app.controller('myCtrl', function ($scope, $http, $interval) {
+      var check_res = { "Name": "", "Age": null, "Zipcode": null, "Gender": "", "medc_num": "", "datea": "", "dateb": "", "Plan": "", "Enroll": "" };
+      $scope.plan_names = [];
+      $scope.plan_name2 = [];
+      $interval(function () {
+        $http.get('https://obscure-shore-19991.herokuapp.com/update').then(function (response) {
+          var result = response.data;
+          if (document.getElementById('zipcode').value == 90024) {
+            $scope.plan_names = ["AARP MedicareComplete SecureHorizons Focus", "AARP MedicareComplete SecureHorizons Premier"];
+            $scope.plan_name2 = [];
+          }
+          if (document.getElementById('zipcode').value == 90025) {
+            $scope.plan_names2 = ["AARP MedicareComplete SecureHorizons Assure", "AARP MedicareComplete SecureHorizons Essential"];
+            $scope.plan_names = [];
+          }
+          if (check_res.Name != result.Name) {
+            document.getElementById('name').value = result.Name;
+            check_res.Name = result.Name;
+          }
+          if (check_res.Age != result.Age) {
+            document.getElementById('age').value = result.Age;
+            check_res.Age = result.Age;
+          }
+          if (check_res.Gender != result.Gender) {
+            if (result.Gender == "Male") {
+              document.getElementById('male').checked = true;
+              document.getElementById('female').checked = false;
+            }
+            else if (result.Gender == "Female") {
+              document.getElementById('male').checked = false;
+              document.getElementById('female').checked = true;
+            }
+            check_res.Gender = result.Gender;
+          }
+          if (check_res.medc_num != result.medc_num) {
+            document.getElementById('medc_num').value = result.medc_num;
+            check_res.medc_num = result.medc_num;
+          }
+
+          if (check_res.datea != result.datea) {
+            document.getElementById('datea').value = result.datea;
+            check_res.datea = result.datea;
+          }
+          if (check_res.dateb != result.dateb) {
+            document.getElementById('dateb').value = result.dateb;
+            check_res.dateb = result.dateb;
+          }
+
+          if (check_res.Zipcode != result.Zipcode) {
+            document.getElementById('zipcode').value = result.Zipcode;
+            check_res.Zipcode = result.Zipcode;
+          }
+          if (check_res.Plan != result.Plan) {
+            document.getElementById('plan').value = result.Plan;
+            check_res.Plan = result.Plan;
+          }
+          if (check_res.Enroll != result.Enroll) {
+            document.getElementById('enroll_button').click();
+            check_res.Enroll = result.Enroll;
+          }
+
+        });
+      }, 1000);
+    });
+
+  </script>
+
+</body>
+
+</html>
