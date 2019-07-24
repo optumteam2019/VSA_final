@@ -153,7 +153,7 @@
               <label>Name</label>
             
             
-              <input type="text" name="name" ng-model="name"  id="name" value = "test test" required>
+              <input type="text" name="name" ng-model="name"  id="name" placeholder="Name" value = "test test" required>
             
           
         </md-input-container>
@@ -164,7 +164,7 @@
               <label for="age">Age</label>
             </div>
             <div class="col-75">
-              <p><input type="text" name="age" ng-model="age" id="age" required></p>
+              <p><input type="text" name="age" ng-model="age" id="age" placeholder="Age" required></p>
             </div>
           </div>
         </md-input-container>
@@ -179,7 +179,7 @@
               
               <md-radio-group>
                 <md-radio-button  name="gender" ng-model="gender" value="male" id="male"> Male</md-radio-button>
-                <md-radio-button name="gender" ng-model="gender" value="female" id="female"> Female</md-radio-button>
+                <md-radio-button  name="gender" ng-model="gender" value="female" id="female"> Female</md-radio-button>
 
               </md-radio-group>
             </div>
@@ -193,7 +193,7 @@
               <label for="medc_num">Medicare Number</label>
             </div>
             <div class="col-75">
-              <p><input type="text" name="medc_num" ng-model="medc_num"  id="medc_num" required>
+              <p><input type="text" name="medc_num" ng-model="medc_num"  id="medc_num" placeholder="####XXXX" required>
               </p>
             </div>
           </div>
@@ -205,7 +205,7 @@
               <label for="datea">Part A Effective Date</label>
             </div>
             <div class="col-75">
-              <p><md-datepicker  name="datea" ng-model="datea" id="datea" required></md-datepicker>
+              <p><md-datepicker  name="datea" ng-model="datea" id="datea" placeholder="MM-DD-YYYY" required></md-datepicker>
               </p>
             </div>
           </div>
@@ -226,7 +226,7 @@
               <label for="zipcode">Zipcode</label>
             </div>
             <div class="col-75">
-              <p> <input id="zipcode" type="text" name="zipcode" ng-model="zipcode_number"
+              <p> <input id="zipcode" type="text" name="zipcode" ng-model="zipcode_number" placeholder="Zipcode"
                   required>
               </p>
             </div>
