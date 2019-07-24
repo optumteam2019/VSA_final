@@ -28,6 +28,103 @@
 }
 
   </style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-animate.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-aria.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-messages.min.js"></script>
+
+  <!-- Angular Material Library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.js"></script>
+
+  <!-- Your application bootstrap  -->
+  <script type="text/javascript">
+    /**
+     * You must include the dependency on 'ngMaterial' 
+     */
+    var app = angular.module('myApp', ['ngMaterial', 'ngMessages']).config(function ($mdThemingProvider) {
+      $mdThemingProvider.theme('default')
+        .primaryPalette('amber', {
+          'default': '400', // by default use shade 400 from the pink palette for primary intentions
+          'hue-1': '200', // use shade 100 for the <code>md-hue-1</code> class
+          'hue-2': '600', // use shade 600 for the <code>md-hue-2</code> class
+          'hue-3': 'A100'
+        })
+        .accentPalette('green', {
+          'default': '200'
+        })
+        .warnPalette('red', {
+          'default': '300'
+        });
+    });
+
+    app.controller('myCtrl', function ($scope, $http, $interval) {
+      var check_res = { "Name": "", "Age": null, "Zipcode": null, "Gender": "", "medc_num": "", "datea": "", "dateb": "", "Plan": "", "Enroll": "" };
+      $scope.plan_names = [];
+      $scope.plan_name2 = [];
+      $interval(function () {
+        $http.get('https://obscure-shore-19991.herokuapp.com/update').then(function (response) {
+          var result = response.data;
+          if (document.getElementById('zipcode').value == 90024) {
+            $scope.plan_names = ["AARP MedicareComplete SecureHorizons Focus", "AARP MedicareComplete SecureHorizons Premier"];
+            $scope.plan_name2 = [];
+          }
+          if (document.getElementById('zipcode').value == 90025) {
+            $scope.plan_names2 = ["AARP MedicareComplete SecureHorizons Assure", "AARP MedicareComplete SecureHorizons Essential"];
+            $scope.plan_names = [];
+          }
+          if (check_res.Name != result.Name) {
+            document.getElementById('name').value = result.Name;
+            check_res.Name = result.Name;
+          }
+          if (check_res.Age != result.Age) {
+            document.getElementById('age').value = result.Age;
+            check_res.Age = result.Age;
+          }
+          if (check_res.Gender != result.Gender) {
+            if (result.Gender == "Male") {
+              document.getElementById('male').checked = true;
+              document.getElementById('female').checked = false;
+            }
+            else if (result.Gender == "Female") {
+              document.getElementById('male').checked = false;
+              document.getElementById('female').checked = true;
+            }
+            check_res.Gender = result.Gender;
+          }
+          if (check_res.medc_num != result.medc_num) {
+            document.getElementById('medc_num').value = result.medc_num;
+            check_res.medc_num = result.medc_num;
+          }
+
+          if (check_res.datea != result.datea) {
+            document.getElementById('datea').value = result.datea;
+            check_res.datea = result.datea;
+          }
+          if (check_res.dateb != result.dateb) {
+            document.getElementById('dateb').value = result.dateb;
+            check_res.dateb = result.dateb;
+          }
+
+          if (check_res.Zipcode != result.Zipcode) {
+            document.getElementById('zipcode').value = result.Zipcode;
+            check_res.Zipcode = result.Zipcode;
+          }
+          if (check_res.Plan != result.Plan) {
+            document.getElementById('plan').value = result.Plan;
+            check_res.Plan = result.Plan;
+          }
+          if (check_res.Enroll != result.Enroll) {
+            document.getElementById('enroll_button').click();
+            check_res.Enroll = result.Enroll;
+          }
+
+        });
+      }, 1000);
+    });
+
+  </script>
+
 </head>
 
 <body ng-app="myApp" ng-cloak>
@@ -172,101 +269,7 @@
 
 
   <!-- Angular Material requires Angular.js Libraries -->
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-animate.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-aria.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-messages.min.js"></script>
-
-  <!-- Angular Material Library -->
-  <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.js"></script>
-
-  <!-- Your application bootstrap  -->
-  <script type="text/javascript">
-    /**
-     * You must include the dependency on 'ngMaterial' 
-     */
-    var app = angular.module('myApp', ['ngMaterial', 'ngMessages']).config(function ($mdThemingProvider) {
-      $mdThemingProvider.theme('default')
-        .primaryPalette('amber', {
-          'default': '400', // by default use shade 400 from the pink palette for primary intentions
-          'hue-1': '200', // use shade 100 for the <code>md-hue-1</code> class
-          'hue-2': '600', // use shade 600 for the <code>md-hue-2</code> class
-          'hue-3': 'A100'
-        })
-        .accentPalette('green', {
-          'default': '200'
-        })
-        .warnPalette('red', {
-          'default': '300'
-        });
-    });
-
-    app.controller('myCtrl', function ($scope, $http, $interval) {
-      var check_res = { "Name": "", "Age": null, "Zipcode": null, "Gender": "", "medc_num": "", "datea": "", "dateb": "", "Plan": "", "Enroll": "" };
-      $scope.plan_names = [];
-      $scope.plan_name2 = [];
-      $interval(function () {
-        $http.get('https://obscure-shore-19991.herokuapp.com/update').then(function (response) {
-          var result = response.data;
-          if (document.getElementById('zipcode').value == 90024) {
-            $scope.plan_names = ["AARP MedicareComplete SecureHorizons Focus", "AARP MedicareComplete SecureHorizons Premier"];
-            $scope.plan_name2 = [];
-          }
-          if (document.getElementById('zipcode').value == 90025) {
-            $scope.plan_names2 = ["AARP MedicareComplete SecureHorizons Assure", "AARP MedicareComplete SecureHorizons Essential"];
-            $scope.plan_names = [];
-          }
-          if (check_res.Name != result.Name) {
-            document.getElementById('name').value = result.Name;
-            check_res.Name = result.Name;
-          }
-          if (check_res.Age != result.Age) {
-            document.getElementById('age').value = result.Age;
-            check_res.Age = result.Age;
-          }
-          if (check_res.Gender != result.Gender) {
-            if (result.Gender == "Male") {
-              document.getElementById('male').checked = true;
-              document.getElementById('female').checked = false;
-            }
-            else if (result.Gender == "Female") {
-              document.getElementById('male').checked = false;
-              document.getElementById('female').checked = true;
-            }
-            check_res.Gender = result.Gender;
-          }
-          if (check_res.medc_num != result.medc_num) {
-            document.getElementById('medc_num').value = result.medc_num;
-            check_res.medc_num = result.medc_num;
-          }
-
-          if (check_res.datea != result.datea) {
-            document.getElementById('datea').value = result.datea;
-            check_res.datea = result.datea;
-          }
-          if (check_res.dateb != result.dateb) {
-            document.getElementById('dateb').value = result.dateb;
-            check_res.dateb = result.dateb;
-          }
-
-          if (check_res.Zipcode != result.Zipcode) {
-            document.getElementById('zipcode').value = result.Zipcode;
-            check_res.Zipcode = result.Zipcode;
-          }
-          if (check_res.Plan != result.Plan) {
-            document.getElementById('plan').value = result.Plan;
-            check_res.Plan = result.Plan;
-          }
-          if (check_res.Enroll != result.Enroll) {
-            document.getElementById('enroll_button').click();
-            check_res.Enroll = result.Enroll;
-          }
-
-        });
-      }, 1000);
-    });
-
-  </script>
+  
 
 </body>
 
