@@ -175,38 +175,38 @@
           <md-input-container style="width:10%">
             <div class="row">
               <label for="age">Age</label>
-              <input type="text" name="age" ng-model="age" id="age" required >
+              <input type="text" name="age" ng-model="age" id="age" style="border:.10rem solid #f5ba0a;border-radius: 0.25rem" required >
             </div>
           </md-input-container>
 
           <md-input-container style="width:20%">
             <div class="row">
               <label for="gender">Gender</label>
-              <input type="text" name="gender" ng-model="gender" id="age" required>
+              <input type="text" name="gender" ng-model="gender" id="gender" style="border:.10rem solid #f5ba0a;border-radius: 0.25rem" required>
             </div>
           </md-input-container>
 
           <md-input-container style="width:30%">
             <div class="row">
               <label for="medc_num">Medicare Number</label>
-              <input type="text" name="medc_num" ng-model="medc_num" id="medc_num" required>
-              <div class="hint">####XXXX</div>
+              <input type="text" name="medc_num" ng-model="medc_num" id="medc_num" style="border:.10rem solid #f5ba0a;border-radius: 0.25rem" required>
+              <div class="hint"></div>
             </div>
           </md-input-container>
 
           <md-input-container class="row" style="width:50%">
             <label>Part A Effective Date</label>
-            <md-datepicker name="datea" ng-model="datea" id="datea" md-placeholder="Enter Date" required></md-datepicker>
+            <md-datepicker name="datea" ng-model="datea" id="datea" md-placeholder="Enter Date" style="border:.10rem solid #f5ba0a;border-radius: 0.25rem" required></md-datepicker>
           </md-input-container>
 
           <md-input-container class="row" style="width:50%">
             <label>Part B Effective Date</label>
-            <md-datepicker name="dateb" ng-model="dateb" id="dateb" md-placeholder="Enter Date" required></md-datepicker>
+            <md-datepicker name="dateb" ng-model="dateb" id="dateb" md-placeholder="Enter Date" style="border:.10rem solid #f5ba0a;border-radius: 0.25rem" required></md-datepicker>
           </md-input-container>
 
           <md-input-container style="width:15%">
             <label for="zipcode">Zipcode</label>
-            <input id="zipcode" type="text" name="zipcode" ng-model="zipcode" required>
+            <input id="zipcode" type="text" name="zipcode" ng-model="zipcode" style="border:.10rem solid #f5ba0a;border-radius: 0.25rem" required>
           </md-input-container>
 
           <md-input-container style="width:45%">
@@ -216,7 +216,7 @@
               </div>
               <div class="col-75">
                 <p>
-                  <md-select id="plan" name="plan" ng-model="plan">
+                  <md-select id="plan" name="plan" ng-model="plan" style="border:.10rem solid #f5ba0a;border-radius: 0.25rem">
                     <md-option value="AARP MedicareComplete SecureHorizons Focus">{{plan_names[0]}}</md-option>
                     <md-option value="AARP MedicareComplete SecureHorizons Premier">{{plan_names[1]}}</md-option>
                     <md-option value="AARP MedicareComplete SecureHorizons Assure">{{plan_names2[0]}}</md-option>
