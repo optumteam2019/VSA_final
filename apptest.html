@@ -65,6 +65,7 @@
       var check_res = { "Name": "", "Age": null, "Zipcode": null, "Gender": "", "medc_num": "", "datea": "", "dateb": "", "Plan": "", "Enroll": "" };
       $scope.plan_names = [];
       $scope.plan_name2 = [];
+      $scope.gender = "";
       $interval(function () {
         $http.get('https://obscure-shore-19991.herokuapp.com/update').then(function (response) {
           var result = response.data;
@@ -86,7 +87,7 @@
           }
           if (check_res.Gender != result.Gender) {
             if (result.Gender == "Male") {
-              $scope.gender = 'Male';
+              $scope.gender = "Male";
               
             }
             else if (result.Gender == "Female") {
@@ -177,8 +178,8 @@
             <div class="col-75">
               
               <md-radio-group>
-                <md-radio-button  name="gender" ng-model=gender-male  value="male" id="male"> Male</md-radio-button>
-                <md-radio-button  name="gender" ng-model=gender-female value="female" id="female"> Female</md-radio-button>
+                <md-radio-button  name="gender" [ng-model]="gender"  value="male" id="male"> Male</md-radio-button>
+                <md-radio-button  name="gender" [ng-model]="gender" value="female" id="female"> Female</md-radio-button>
 
               </md-radio-group>
             </div>
