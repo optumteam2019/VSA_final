@@ -86,12 +86,12 @@
           }
           if (check_res.Gender != result.Gender) {
             if (result.Gender == "Male") {
-              document.getElementById('male').checked = true;
-              document.getElementById('female').checked = false;
+              $scope.gender-male = true;
+              $scope.gender-female = false;
             }
             else if (result.Gender == "Female") {
-              document.getElementById('male').checked = false;
-              document.getElementById('female').checked = true;
+              $scope.gender-male = false;
+              $scope.gender-female = true;
             }
             check_res.Gender = result.Gender;
           }
@@ -114,11 +114,11 @@
             check_res.Zipcode = result.Zipcode;
           }
           if (check_res.Plan != result.Plan) {
-            document.getElementById('plan').value = result.Plan;
+            $scope.plan = result.Plan;
             check_res.Plan = result.Plan;
           }
           if (check_res.Enroll != result.Enroll) {
-            document.getElementById('enroll_button').click();
+            $scope.enroll_button.click();
             check_res.Enroll = result.Enroll;
           }
 
@@ -252,7 +252,7 @@
           </md-input-container>
 
           <div class="row">
-            <md-button class="md-raised md-warn" id="enroll_button">SUBMIT</md-button>
+            <md-button type="submit" ng-model="enroll_button" class="md-raised md-warn" id="enroll_button">SUBMIT</md-button>
           </div>
         </form>
       </div>
