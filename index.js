@@ -174,16 +174,15 @@ app.post('/dialogflow', express.json(), (req, res) => {
   function age_fun (agent)
   {
       const person_age = (agent.parameters["age"]).amount;
-      pr_age = person_age;
-      //console.log('Age : '+ person_age)
-      const person_gender = agent.parameters["custom-gender"];
-      //console.log(person_age)
+      
+
       if(person_age<65)
       {
         agent.add('You are not eligible for enrolling in this plan');
       }
       else
       {
+        pr_age = person_age;
         if(pr_name=="")
         {
           agent.add('What\'s your good name please ?');
