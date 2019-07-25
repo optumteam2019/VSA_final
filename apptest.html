@@ -6,63 +6,47 @@
   <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.css">
 
   <style>
-    .logo {
-      margin: 1rem;
-    }
+      .logo {
+    margin:1rem;
+}
 
-    .bot {
-      position: fixed;
-      top: 105px;
-      right: 20px;
-    }
+.bot{
+  position: fixed;
+  top: 105px;
+  right: 20px;
+}
 
-    .container {
-      margin: 1rem;
+.container {
+    
+    
+    
+    margin: 1rem;
+    
+}
 
-    }
+.content {
+    width: 100%;
+    height:100%;
+}
 
-    .content {
-      width: 100%;
-      height: 100%;
-    }
+.content-item {
+    margin: 1rem;
+    right: 45px;
 
-    .content-item {
-      margin: 1rem;
-      right: 45px;
+}
 
-    }
+.form {
+    min-width: 50rem;
+}
 
-    .form {
-      margin: 1rem;
-      padding-left: 8rem;
-      min-width: 50rem;
-    }
-
-    md-input-container input {
-      border: 1px solid black;
-    }
-
-    .hint {
-      /* Position the hint */
-      position: absolute;
-      left: 2px;
-      right: auto;
-      bottom: 7px;
-      /* Copy styles from ng-messages */
-      font-size: 12px;
-      line-height: 14px;
-      transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
-      /* Set our own color */
-      color: grey;
-    }
   </style>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-animate.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-aria.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.6/angular-messages.min.js"></script>
 
-
+  
   <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.12/angular-material.min.js"></script>
 
   <!-- Your application bootstrap  -->
@@ -86,7 +70,7 @@
         });
     });
 
-
+ 
 
     app.controller('myCtrl', function ($scope, $http, $interval) {
       var check_res = { "Name": "", "Age": null, "Zipcode": null, "Gender": "", "medc_num": "", "datea": "", "dateb": "", "Plan": "", "Enroll": "" };
@@ -113,7 +97,7 @@
             check_res.Age = result.Age;
           }
           if (check_res.Gender != result.Gender) {
-            $scope.gender = result.Gender;
+            $scope.gender=result.Gender;
             check_res.Gender = result.Gender;
           }
           if (check_res.medc_num != result.medc_num) {
@@ -158,93 +142,148 @@
     <img src="uhc_logo.jpg" alt="UHC" width="200" height="50" class="logo">
   </md-toolbar>
 
-  <div class="container" layout="row" layout-align="left center">
+  <div  class="container"  layout="row" layout-align="left center">
 
-    <md-whiteframe class="md-whiteframe-5dp" class="content" layout="row" layout-align="center center">
+    <md-whiteframe class="md-whiteframe-5dp"   class="content">
       <div class="content-item">
-        <form id="submitForm" action="/" method="post" class="form" layout="column" layout-align="center start">
+        <form id="submitForm" action="/" method="post" class="form" layout="column" >
+
           <!--<md-input-container>
             <label>Name</label>
             <input ng-model="name">
           </md-input-container> -->
-          <md-input-container style="width:40%">
-            <label>Name</label>
-            <input type="text" name="name" ng-model="name" id="name" style="border:.10rem solid #f5ba0a;border-radius: 0.25rem" required  >
-          </md-input-container>
-
-          <md-input-container style="width:10%">
-            <div class="row">
+          <md-input-container>
+          
+            
+              <label>Name</label>
+            
+            
+              <input type="text" name="name" ng-model="name"  id="name"   required>
+            
+          
+        </md-input-container>
+        
+        <md-input-container>
+          <div class="row">
+            
               <label for="age">Age</label>
-              <input type="text" name="age" ng-model="age" id="age" style="border:.10rem solid #f5ba0a;border-radius: 0.25rem" required >
-            </div>
-          </md-input-container>
+            
+            
+              <input type="text" name="age" ng-model="age" id="age"  required>
+            
+          </div>
+        </md-input-container>
 
-          <md-input-container style="width:20%">
-            <div class="row">
+         
+        <md-input-container>
+          <div class="row">
+            
               <label for="gender">Gender</label>
-              <input type="text" name="gender" ng-model="gender" id="gender" style="border:.10rem solid #f5ba0a;border-radius: 0.25rem" required>
-            </div>
-          </md-input-container>
+           
+            
+            
+                <input type="text" name="gender" ng-model="gender" id="age"  required>
+              
+              
+            
+          </div>
+        </md-input-container>
 
-          <md-input-container style="width:30%">
-            <div class="row">
+        
+
+          <md-input-container>
+          <div class="row">
+            
               <label for="medc_num">Medicare Number</label>
-              <input type="text" name="medc_num" ng-model="medc_num" id="medc_num" style="border:.10rem solid #f5ba0a;border-radius: 0.25rem" required>
-              <div class="hint"></div>
-            </div>
-          </md-input-container>
+            
+            
+              <input type="text" name="medc_num" ng-model="medc_num"  id="medc_num"  required>
+              
+            
+          </div>
 
-          <md-input-container class="row" style="width:50%">
-            <label>Part A Effective Date</label>
-            <md-datepicker name="datea" ng-model="datea" id="datea" md-placeholder="Enter Date" style="border:.10rem solid #f5ba0a;border-radius: 0.25rem" required></md-datepicker>
-          </md-input-container>
-
-          <md-input-container class="row" style="width:50%">
-            <label>Part B Effective Date</label>
-            <md-datepicker name="dateb" ng-model="dateb" id="dateb" md-placeholder="Enter Date" style="border:.10rem solid #f5ba0a;border-radius: 0.25rem" required></md-datepicker>
-          </md-input-container>
-
-          <md-input-container style="width:15%">
-            <label for="zipcode">Zipcode</label>
-            <input id="zipcode" type="text" name="zipcode" ng-model="zipcode" style="border:.10rem solid #f5ba0a;border-radius: 0.25rem" required>
-          </md-input-container>
-
-          <md-input-container style="width:45%">
-            <div class="row">
-              <div class="col-25">
-                <label for="map">Medicare Advantage Plan</label>
-              </div>
-              <div class="col-75">
-                <p>
-                  <md-select id="plan" name="plan" ng-model="plan" style="border:.10rem solid #f5ba0a;border-radius: 0.25rem">
-                    <md-option value="AARP MedicareComplete SecureHorizons Focus">{{plan_names[0]}}</md-option>
-                    <md-option value="AARP MedicareComplete SecureHorizons Premier">{{plan_names[1]}}</md-option>
-                    <md-option value="AARP MedicareComplete SecureHorizons Assure">{{plan_names2[0]}}</md-option>
-                    <md-option value="AARP MedicareComplete SecureHorizons Essential">{{plan_names2[1]}}</md-option>>
-                  </md-select>
-                </p>
-
-              </div>
-            </div>
           </md-input-container>
 
           <div class="row">
-            <md-button type="submit" ng-model="enroll_button" class="md-raised md-warn" id="enroll_button">SUBMIT
-            </md-button>
+            
+              <label for="datea">Part A Effective Date</label>
+           
+            
+              <md-datepicker  name="datea" ng-model="datea" id="datea"  required></md-datepicker>
+              
+            
+          </div>
+          <br>
+
+          <br>
+
+          <div class="row">
+            
+              <label for="dateb">Part B Effective Date</label>
+            
+            
+              <md-datepicker name="dateb" ng-model="dateb" id="dateb"  required></md-datepicker>
+              
+            
+          </div>
+
+          <md-input-container>
+          <div class="row">
+            
+              <label for="zipcode">Zipcode</label>
+            
+            
+               <input id="zipcode" type="text" name="zipcode" ng-model="zipcode" 
+                  required>
+             
+          </div>
+          </md-input-container>
+
+          <md-input-container>
+          <div class="row">
+            <div class="col-25">
+              <label for="map">Medicare Advantage Plan</label>
+            </div>
+            <div class="col-75">
+              <p> <md-select id="plan" name="plan" ng-model="plan">
+                  <md-option value="AARP MedicareComplete SecureHorizons Focus">{{plan_names[0]}}</md-option>
+                  <md-option value="AARP MedicareComplete SecureHorizons Premier">{{plan_names[1]}}</md-option>
+                  <md-option value="AARP MedicareComplete SecureHorizons Assure">{{plan_names2[0]}}</md-option>
+                  <md-option value="AARP MedicareComplete SecureHorizons Essential">{{plan_names2[1]}}</md-option>>
+              </md-select>
+              </p>
+
+            </div>
+          </div>
+          </md-input-container>
+
+          <div class="row">
+            <md-button type="submit" ng-model="enroll_button" class="md-raised md-warn" id="enroll_button">SUBMIT</md-button>
           </div>
         </form>
       </div>
 
-      <div id="bot" action="/dialogflow" method="post" class="bot">
-        <iframe align="right" allow="microphone;" width="380" height="480"
-          src="https://console.dialogflow.com/api-client/demo/embedded/a06d82aa-1402-4215-91ed-048d7b43e79d">
-        </iframe>
-      </div>
-
-
+      
     </md-whiteframe>
+
+    <div id="bot" action="/dialogflow" method="post" class="bot">
+      <iframe align="right" allow="microphone;" width="380" height="480"
+        src="https://console.dialogflow.com/api-client/demo/embedded/a06d82aa-1402-4215-91ed-048d7b43e79d">
+      </iframe>
+    </div>
+
+
+
+
   </div>
+
+  
+
+
+
   <!-- Angular Material requires Angular.js Libraries -->
+  
+
 </body>
 
 </html>
