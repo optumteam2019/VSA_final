@@ -12,13 +12,16 @@
 
 .bot{
   position: fixed;
-  top: 70px;
+  top: 105px;
   right: 20px;
 }
 
 .container {
-    width:100%;
-    margin: 1.5rem;
+    
+    
+    
+    margin: 1rem;
+    
 }
 
 .content {
@@ -28,7 +31,7 @@
 
 .content-item {
     margin: 1rem;
-    right: 50px;
+    right: 45px;
 
 }
 
@@ -172,7 +175,7 @@
               <label for="age">Age</label>
             </div>
             <div class="col-75">
-              <p><input type="text" name="age" ng-model="age" id="age" placeholder="Age" required></p>
+              <p><input type="text" name="age" ng-model="age" id="age"  required></p>
             </div>
           </div>
         </md-input-container>
@@ -185,7 +188,7 @@
             </div>
             
             <div class="col-75">
-                <p><input type="text" name="gender" ng-model="gender" id="age" placeholder="Gender" required></p>
+                <p><input type="text" name="gender" ng-model="gender" id="age"  required></p>
               
               
             </div>
@@ -200,7 +203,7 @@
               <label for="medc_num">Medicare Number</label>
             </div>
             <div class="col-75">
-              <p><input type="text" name="medc_num" ng-model="medc_num"  id="medc_num" placeholder="####XXXX" required>
+              <p><input type="text" name="medc_num" ng-model="medc_num"  id="medc_num"  required>
               </p>
             </div>
           </div>
@@ -212,7 +215,7 @@
               <label for="datea">Part A Effective Date</label>
             </div>
             <div class="col-75">
-              <p><md-datepicker  name="datea" ng-model="datea" id="datea" placeholder="MM-DD-YYYY" required></md-datepicker>
+              <p><md-datepicker  name="datea" ng-model="datea" id="datea"  required></md-datepicker>
               </p>
             </div>
           </div>
@@ -222,7 +225,7 @@
               <label for="dateb">Part B Effective Date</label>
             </div>
             <div class="col-75">
-              <p><md-datepicker name="dateb" ng-model="dateb" id="dateb" placeholder="MM-DD-YYYY" required></md-datepicker>
+              <p><md-datepicker name="dateb" ng-model="dateb" id="dateb"  required></md-datepicker>
               </p>
             </div>
           </div>
@@ -233,7 +236,7 @@
               <label for="zipcode">Zipcode</label>
             </div>
             <div class="col-75">
-              <p> <input id="zipcode" type="text" name="zipcode" ng-model="zipcode" placeholder="Zipcode"
+              <p> <input id="zipcode" type="text" name="zipcode" ng-model="zipcode" 
                   required>
               </p>
             </div>
@@ -268,7 +271,7 @@
     </md-whiteframe>
 
     <div id="bot" action="/dialogflow" method="post" class="bot">
-      <iframe align="right" allow="microphone;" width="300" height="470"
+      <iframe align="right" allow="microphone;" width="330" height="430"
         src="https://console.dialogflow.com/api-client/demo/embedded/a06d82aa-1402-4215-91ed-048d7b43e79d">
       </iframe>
     </div>
