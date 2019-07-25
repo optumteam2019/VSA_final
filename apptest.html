@@ -10,6 +10,12 @@
     margin:1rem;
 }
 
+.bot{
+  position: fixed;
+  top: 70px;
+  right: 20px;
+}
+
 .container {
     width:100%;
     margin: 1.5rem;
@@ -21,13 +27,13 @@
 }
 
 .content-item {
-    position:fixed;
-    top:20px;
     margin: 1rem;
+    right: 50px;
+
 }
 
 .form {
-    min-width: 35rem;
+    min-width: 50rem;
 }
 
   </style>
@@ -139,11 +145,11 @@
     <img src="uhc_logo.jpg" alt="UHC" width="200" height="50" class="logo">
   </md-toolbar>
 
-  <div  class="container"  layout="row" layout-align="center center">
+  <div  class="container"  layout="row" layout-align="left center">
 
-    <md-whiteframe class="md-whiteframe-5dp"  layout layout-align="center center" class="content">
+    <md-whiteframe class="md-whiteframe-5dp"   class="content">
       <div class="content-item">
-        <form id="submitForm" action="/" method="post" class="form" layout="column" layout-align="center none">
+        <form id="submitForm" action="/" method="post" class="form" layout="column" >
 
           <!--<md-input-container>
             <label>Name</label>
@@ -155,7 +161,7 @@
               <label>Name</label>
             
             
-              <input type="text" name="name" ng-model="name"  id="name" placeholder="Name"  required>
+              <input type="text" name="name" ng-model="name"  id="name"   required>
             
           
         </md-input-container>
@@ -172,20 +178,19 @@
         </md-input-container>
 
          
+        <md-input-container>
           <div class="row">
             <div class="col-25">
               <label for="gender">Gender</label>
             </div>
-            <md-divider></md-divider>
+            
             <div class="col-75">
+                <p><input type="text" name="gender" ng-model="gender" id="age" placeholder="Gender" required></p>
               
-              <md-radio-group>
-                <md-radio-button  name="gender" ng-model="male"  id="male"> Male</md-radio-button>
-                <md-radio-button  name="gender" ng-model="female"  id="female"> Female</md-radio-button>
-
-              </md-radio-group>
+              
             </div>
           </div>
+        </md-input-container>
 
         
 
@@ -262,14 +267,18 @@
       
     </md-whiteframe>
 
-    <div id="bot" action="/dialogflow" method="post" class="content-item">
-      <iframe align="right" allow="microphone;" width="350" height="500"
+    <div id="bot" action="/dialogflow" method="post" class="bot">
+      <iframe align="right" allow="microphone;" width="300" height="470"
         src="https://console.dialogflow.com/api-client/demo/embedded/a06d82aa-1402-4215-91ed-048d7b43e79d">
       </iframe>
     </div>
 
 
+
+
   </div>
+
+  
 
 
 
