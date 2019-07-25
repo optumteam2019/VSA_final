@@ -118,7 +118,7 @@
             check_res.Plan = result.Plan;
           }
           if (check_res.Enroll != result.Enroll) {
-            angular.element(document.querySelector('#enroll_button')).click();
+            document.getElementById('enroll_button').click();
             check_res.Enroll = result.Enroll;
           }
 
