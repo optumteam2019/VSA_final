@@ -81,7 +81,7 @@
             check_res.Name = result.Name;
           }
           if (check_res.Age != result.Age) {
-            document.getElementById('age').value = result.Age;
+            $scope.age = result.Age;
             check_res.Age = result.Age;
           }
           if (check_res.Gender != result.Gender) {
@@ -96,21 +96,21 @@
             check_res.Gender = result.Gender;
           }
           if (check_res.medc_num != result.medc_num) {
-            document.getElementById('medc_num').value = result.medc_num;
+            $scope.medc_num = result.medc_num;
             check_res.medc_num = result.medc_num;
           }
 
           if (check_res.datea != result.datea) {
-            document.getElementById('datea').value = result.datea;
+            $scope.datea = result.datea;
             check_res.datea = result.datea;
           }
           if (check_res.dateb != result.dateb) {
-            document.getElementById('dateb').value = result.dateb;
+            $scope.dateb = result.dateb;
             check_res.dateb = result.dateb;
           }
 
           if (check_res.Zipcode != result.Zipcode) {
-            document.getElementById('zipcode').value = result.Zipcode;
+            $scope.zipcode = result.Zipcode;
             check_res.Zipcode = result.Zipcode;
           }
           if (check_res.Plan != result.Plan) {
@@ -178,8 +178,8 @@
             <div class="col-75">
               
               <md-radio-group>
-                <md-radio-button  name="gender" ng-model="gender" value="male" id="male"> Male</md-radio-button>
-                <md-radio-button  name="gender" ng-model="gender" value="female" id="female"> Female</md-radio-button>
+                <md-radio-button  name="gender" ng-model="gender-male" value="male" id="male"> Male</md-radio-button>
+                <md-radio-button  name="gender" ng-model="gender-female" value="female" id="female"> Female</md-radio-button>
 
               </md-radio-group>
             </div>
@@ -226,7 +226,7 @@
               <label for="zipcode">Zipcode</label>
             </div>
             <div class="col-75">
-              <p> <input id="zipcode" type="text" name="zipcode" ng-model="zipcode_number" placeholder="Zipcode"
+              <p> <input id="zipcode" type="text" name="zipcode" ng-model="zipcode" placeholder="Zipcode"
                   required>
               </p>
             </div>
