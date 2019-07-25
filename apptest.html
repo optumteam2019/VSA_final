@@ -118,7 +118,7 @@
             check_res.Plan = result.Plan;
           }
           if (check_res.Enroll != result.Enroll) {
-            $scope.enroll_button.click();
+            angular.element('#enroll_button').triggerHandler('click');
             check_res.Enroll = result.Enroll;
           }
 
