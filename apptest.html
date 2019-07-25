@@ -97,13 +97,7 @@
             check_res.Age = result.Age;
           }
           if (check_res.Gender != result.Gender) {
-            if (result.Gender == "Male") {
-              document.getElementById('male').value = "male";
-              
-            }
-            else if (result.Gender == "Female") {
-              document.getElementById('female').value = "female";
-            }
+            $scope.gender=result.Gender;
             check_res.Gender = result.Gender;
           }
           if (check_res.medc_num != result.medc_num) {
